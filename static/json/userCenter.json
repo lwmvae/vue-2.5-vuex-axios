@@ -1,0 +1,84 @@
+{
+  "info":
+  {
+    "userName": "张三",
+    "userAvatar": "http://localhost:8080/static/img/header.jpg"
+  },
+  "certificateList": [
+  {
+    "ctfTitle": "科研机构实验室证书",
+    "ctfAvatar": "http://localhost:8080/static/img/qx.png"
+  },
+  {
+    "ctfTitle": "实验室瓶装气体使用人员证书",
+    "ctfAvatar": "http://localhost:8080/static/img/header.jpg"
+  },
+  {
+    "ctfTitle": "瓶装气体运输人员证书",
+    "ctfAvatar": "http://localhost:8080/static/img/qx.png"
+  },
+  {
+    "ctfTitle": "气瓶充装企业人员证书",
+    "ctfAvatar": "http://localhost:8080/static/img/header.jpg"
+  },
+  {
+    "ctfTitle": "瓶装气体经销企业人员证书",
+    "ctfAvatar": "http://localhost:8080/static/img/qx.png"
+  }],
+  "mineCourse": [
+  {
+    "id": 10000,
+    "mcTitle": "科研机构实验室",
+    "mcAvatar": "http://localhost:8080/static/img/qx.png",
+    "examDeadLine": 1,
+    "getCtf": false,
+    "pay": true,
+    "forgetTest": false
+  },
+  {
+    "id": 10001,
+    "mcTitle": "实验室瓶装气体使用人员",
+    "mcAvatar": "http://localhost:8080/static/img/qx.png",
+    "examDeadLine": 2,
+    "getCtf": true,
+    "pay": true,
+    "forgetTest": false
+  },
+  {
+    "id": 10002,
+    "mcTitle": "瓶装气体运输人员",
+    "mcAvatar": "http://localhost:8080/static/img/qx.png",
+    "examDeadLine": -3,
+    "getCtf": false,
+    "pay": true,
+    "forgetTest": true
+  },
+  {
+    "id": 10003,
+    "mcTitle": "气瓶充装企业人员",
+    "mcAvatar": "http://localhost:8080/static/img/qx.png",
+    "examDeadLine": -1,
+    "getCtf": false,
+    "pay": false,
+    "forgetTest": false
+  }],
+  "minePpaer":[{
+  	"paperId":100,
+  	"courseTitle":"科研机构实验室",
+  	"paperTitle":"科研机构实验室试卷",
+  	"paperType":true,
+  	"score":70
+  },{
+  	"paperId":101,
+  	"courseTitle":"实验室瓶装气体使用人员",
+  	"paperTitle":"实验室瓶装气体使用人员试卷",
+  	"paperType":false,
+  	"score":90
+  },{
+  	"paperId":102,
+  	"courseTitle":"瓶装气体运输人员",
+  	"paperTitle":"瓶装气体运输人员试卷",
+  	"paperType":true,
+  	"score":60
+  }]
+}

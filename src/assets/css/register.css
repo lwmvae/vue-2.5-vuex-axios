@@ -1,0 +1,209 @@
+.content {
+  width: 430px;
+  margin: 30px auto;
+  padding: 35px 30px 10px 30px;
+  border: 1px solid #dfdfdf;
+  background-color: #fff;
+}
+.content .title {
+  font-size: 22px;
+  margin-bottom: 30px;
+  text-align: center;
+}
+.content input {
+  border: 1px solid #dfdfdf;
+  padding-left: 10px;
+  width: 335px;
+  height: 45px;
+  line-height: 45px;
+}
+.content input:focus {
+  border: 1px solid #ec5a47;
+}
+.content button {
+  width: 100%;
+  height: 47px;
+  line-height: 47px;
+  font-size: 16px;
+  color: #fff;
+  background-color: #ec5a47;
+  border: none;
+  border-radius: 2px;
+  -moz-border-radius: 2px;
+  -webkit-border-radius: 2px;
+  cursor: pointer;
+}
+.content .left {
+  float: left;
+  width: 72px;
+}
+.content .left span {
+  display: block;
+  text-align: justify;
+  text-justify: inter-ideograph;
+  height: 47px;
+  line-height: 47px;
+  color: #888;
+}
+.content .left span:after {
+  content: '.';
+  width: 100%;
+  display: inline-block;
+  overflow: hidden;
+  height: 0;
+}
+.content .right {
+  float: left;
+  margin-left: 10px;
+  position: relative;
+}
+.content .right p {
+  position: absolute;
+  left: 0;
+  font-size: 12px;
+  color: #999;
+}
+.content .right .p {
+  color: #ec5a47;
+}
+.content .password,
+.content .sure-psw,
+.content .img-code,
+.content .phone,
+.content .text-code,
+.content .name {
+  margin-top: 30px;
+}
+.content .idcard {
+  margin-top: 30px;
+}
+.content .img-code .right,
+.content .text-code .right {
+  width: 347px;
+}
+.content .img-code input,
+.content .text-code input {
+  float: left;
+  width: 220px;
+}
+.content .img-code img,
+.content .text-code img {
+  margin-left: 12px;
+  width: 100px;
+  height: 45px;
+  overflow: hidden;
+  border: 1px solid #999;
+  cursor: pointer;
+}
+.content .img-code button,
+.content .text-code button {
+  width: 102px;
+  margin-left: 12px;
+}
+.content .text-code button {
+  font-size: 14px;
+}
+.content .button {
+  margin-top: 30px;
+}
+.content .button button {
+  width: 100%;
+}
+.content .login {
+  text-align: right;
+  margin-top: 5px;
+}
+.content .login span {
+  color: #999;
+  font-size: 12px;
+  line-height: 19px;
+}
+.content .login a {
+  color: #ec5a47;
+}
+/* #add-popup {
+.gray {
+width: 100%;
+height: 100%;
+background: rgba(0, 0, 0, 0.3);
+filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#4C000000, endColorstr=#4C000000);
+position: fixed;
+top: 0;
+left: 0;
+}
+
+.popup {
+position: absolute;
+background-color: #fff;
+}
+
+.popup-title {
+padding: 0 10px;
+height: 30px;
+line-height: 30px;
+background-color: #f3f3f3;
+color: #000;
+
+.title {
+float: left;
+font-weight: bold;
+}
+
+.delete {
+float: right;
+
+i {
+display: block;
+width: 30px;
+height: 30px;
+background: url('http://localhost:8080/static/img/qxicon.png') no-repeat -181px -755px;
+cursor: pointer;
+}
+
+}
+
+}
+
+.popup-content {
+width: 900px;
+overflow-y: auto;
+max-height: 500px;
+margin: 10px 10px 0 15px;
+background-color: #fff;
+
+p {
+line-height: 30px;
+}
+
+}
+
+.popup-button {
+text-align: center;
+padding: 20px 0;
+
+button {
+border: none;
+outline: none;
+width: 200px;
+height: 50px;
+line-height: 50px;
+font-size: 16px;
+border-radius: 2px;
+cursor: pointer;
+}
+
+.cancel {
+color: #999;
+background-color: #e3e4e5;
+margin-right: 20px;
+}
+
+.sure {
+color: #fff;
+background-color: #ec5a47;
+}
+
+}
+
+}
+ */

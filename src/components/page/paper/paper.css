@@ -1,0 +1,312 @@
+.content {
+  padding-bottom: 20px;
+  width: 1200px;
+  margin: 0 auto;
+}
+.content .con {
+  padding-top: 20px;
+}
+.content .exam-wrapper {
+  margin-top: 20px;
+  height: 40px;
+  line-height: 40px;
+  padding: 0 10px;
+  background-color: #dfdfdf;
+}
+.content .exam-wrapper .name,
+.content .exam-wrapper .score,
+.content .exam-wrapper .pass,
+.content .exam-wrapper .speed {
+  float: left;
+  margin-right: 30px;
+}
+.content .exam-wrapper .name p {
+  max-width: 500px;
+  height: 40px;
+  overflow: hidden;
+}
+.content .exam-wrapper .speed span {
+  color: #ff3408;
+}
+.content .exam-wrapper .submit {
+  float: right;
+}
+.content .exam-wrapper .submit button {
+  height: 30px;
+  line-height: 30px;
+  outline: none;
+  border: none;
+  background-color: #3481d0;
+  color: #fff;
+  padding: 0 15px;
+  border-radius: 2px;
+  -moz-border-radius: 2px;
+  -webkit-border-radius: 2px;
+  cursor: pointer;
+}
+.content .fixed {
+  width: 100%;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 100;
+  background-color: #dfdfdf;
+  transition: all 0.5s;
+}
+.content .fixed .exam-wrapper {
+  width: 1200px;
+  margin: 0 auto;
+  padding: 20px 0;
+}
+.content .exam-name {
+  height: 100px;
+  line-height: 100px;
+  font-size: 30px;
+  background-color: #aaa;
+  color: #fff;
+  text-align: center;
+}
+.content .aside-wrapper {
+  width: 250px;
+  position: absolute;
+}
+.content .all-subject {
+  margin-left: 270px;
+  width: 908px;
+  border: 1px solid #dfdfdf;
+  padding: 10px;
+  background-color: #fff;
+}
+.content .aside-fixed {
+  position: fixed;
+  top: 100px;
+  z-index: 100;
+  width: 1200px;
+  margin: 0 auto;
+}
+.content .person {
+  padding: 10px 0 10px 10px;
+  border: 1px solid #dfdfdf;
+  background-color: #fff;
+}
+.content .person .p-img {
+  float: left;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  -moz-border-radius: 50%;
+  -webkit-border-radius: 50%;
+  overflow: hidden;
+}
+.content .person .p-img img {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  -moz-border-radius: 50%;
+  -webkit-border-radius: 50%;
+  overflow: hidden;
+}
+.content .person .p-info {
+  float: left;
+  margin-left: 20px;
+}
+.content .person .p-info p {
+  width: 157px;
+  height: 60px;
+  line-height: 60px;
+  overflow: hidden;
+}
+.content .aside-down {
+  margin-top: 20px;
+  border: 1px solid #dfdfdf;
+  background-color: #fff;
+}
+.content .remaining-time {
+  width: 230px;
+  margin: 0 auto;
+  color: #ff3408;
+  padding: 10px 0;
+  text-align: center;
+  border-bottom: 1px solid #dfdfdf;
+  font-size: 16px;
+}
+.content .remaining-time i {
+  padding-left: 25px;
+  background: url(http://localhost:8080/static/img/qxicon.png) no-repeat -340px -395px;
+}
+.content .legend h6 {
+  margin: 5px 0 5px 10px;
+}
+.content .legend p {
+  display: inline-block;
+  margin-left: 10px;
+  color: #666;
+}
+.content .legend p span {
+  padding-left: 19px;
+  margin-right: 5px;
+}
+.content .legend .p1 span {
+  background-color: #3481d0;
+}
+.content .legend .p2 span {
+  background-color: #ababab;
+}
+.content .legend .p3 span {
+  background-color: #ff3408;
+}
+.content .subject-type {
+  padding-bottom: 10px;
+  overflow-y: auto;
+}
+.content .subject-type ul {
+  font-size: 0;
+}
+.content .subject-type p {
+  font-size: 16px;
+  margin-left: 10px;
+  margin-top: 10px;
+}
+.content .subject-type li {
+  display: inline-block;
+  font-size: 14px;
+  width: 25px;
+  height: 25px;
+  line-height: 25px;
+  text-align: center;
+  color: #fff;
+  background-color: #ababab;
+  margin-left: 10px;
+  margin-top: 10px;
+  cursor: pointer;
+}
+.content .subject-type li.active {
+  background-color: #3481d0;
+}
+.content .subject-type li.doubtful {
+  background-color: #ff3408;
+}
+.content .single,
+.content .double,
+.content .judge {
+  border: 1px solid #dfdfdf;
+  margin-top: 20px;
+}
+.content .title {
+  height: 50px;
+  border-bottom: 1px solid #dfdfdf;
+}
+.content .title .type {
+  float: left;
+  margin-left: 10px;
+  line-height: 50px;
+  font-size: 16px;
+}
+.content .title .detail {
+  float: left;
+  margin-left: 5px;
+  height: 50px;
+  line-height: 50px;
+  color: #888;
+}
+.content .subject {
+  position: relative;
+  padding: 10px 10px 10px 30px;
+  border-bottom: 1px solid #dfdfdf;
+}
+.content .subject p {
+  line-height: 25px;
+  padding-bottom: 10px;
+}
+.content .subject i {
+  position: absolute;
+  top: 10px;
+  left: 3px;
+  display: block;
+  width: 25px;
+  height: 25px;
+  line-height: 25px;
+  text-align: center;
+  color: #fff;
+  background-color: #3481d0;
+  border-radius: 50%;
+  -moz-border-radius: 50%;
+  -webkit-border-radius: 50%;
+}
+.content .subject span {
+  color: #888;
+  margin-right: 5px;
+}
+.content .subject a {
+  position: absolute;
+  right: 10px;
+  bottom: 0;
+  padding-left: 20px;
+  color: #ff3408;
+  background: url(http://localhost:8080/static/img/qxicon.png) no-repeat -342px -867px;
+}
+.content .subject a.active {
+  background: url(http://localhost:8080/static/img/qxicon.png) no-repeat -342px -756px;
+}
+.content .source {
+  padding: 0 20px 0 30px;
+}
+.content .source .source-detail {
+  position: relative;
+  margin-top: 10px;
+  text-align: center;
+}
+.content .source .source-detail .close {
+  display: none;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 40px;
+  height: 40px;
+  background: url(http://localhost:8080/static/img/qxicon.png) no-repeat -514px -266px;
+  cursor: pointer;
+}
+.content .source .source-detail img {
+  max-width: 100%;
+  cursor: url('http://localhost:8080/static/img/narrow.ico'), auto;
+}
+.content .source .source-wrapper {
+  margin-top: 10px;
+}
+.content .source .source-wrapper img {
+  width: 52px;
+  height: 52px;
+  margin-right: 10px;
+  overflow: hidden;
+  cursor: pointer;
+}
+.content .source .source-wrapper .img {
+  cursor: url('http://localhost:8080/static/img/magnifier.ico'), auto;
+}
+.content .option {
+  padding: 0 20px 10px 30px;
+  /* p {
+			margin-top: 20px;
+			color: #999;
+		} */
+}
+.content .option li {
+  margin-top: 20px;
+  cursor: pointer;
+}
+.content .option li span {
+  padding-left: 23px;
+  margin-right: 5px;
+}
+.content .option-single li span {
+  background: url(http://localhost:8080/static/img/qxicon.png) no-repeat -341px -638px;
+}
+.content .option-single li.active span {
+  background: url(http://localhost:8080/static/img/qxicon.png) no-repeat -341px -515px;
+}
+.content .option-double li span {
+  background: url(http://localhost:8080/static/img/qxicon.png) no-repeat -527px -154px;
+}
+.content .option-double li.active span {
+  background: url(http://localhost:8080/static/img/qxicon.png) no-repeat -527px -24px;
+}

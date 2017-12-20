@@ -1,0 +1,181 @@
+.content {
+  width: 1200px;
+  margin: 0 auto;
+}
+.detail-title {
+  border: 1px solid #dfdfdf;
+  padding: 20px 5px 20px 20px;
+  margin-top: 20px;
+  background-color: #fff;
+  overflow: auto;
+}
+.title-left {
+  float: left;
+}
+.title-left img {
+  width: 335px;
+  height: 250px;
+  overflow: hidden;
+}
+.title-right {
+  float: left;
+  margin-left: 40px;
+  width: 790px;
+}
+.title-right h1 {
+  font-size: 22px;
+}
+.title-right .purchase {
+  color: #666;
+  margin: 10px 0;
+}
+.title-right .purchase i {
+  padding-left: 17px;
+  background: url('http://localhost:8080/static/img/qxicon.png') no-repeat -345px -275px;
+}
+.title-right .title-content p {
+  height: 66px;
+  line-height: 22px;
+  text-indent: 2em;
+  overflow: hidden;
+}
+.title-right .price {
+  font-size: 30px;
+  color: #ff0000;
+  margin: 15px 0;
+  font-family: 'Arial';
+}
+.title-right button {
+  width: 160px;
+  height: 45px;
+  line-height: 45px;
+  border: none;
+  color: #fff;
+  font-size: 20px;
+  border-radius: 2px;
+  -moz-border-radius: 2px;
+  -webkit-border-radius: 2px;
+  background-color: #3481d0;
+}
+.title-right .join {
+  background-color: #ff8000;
+  cursor: pointer;
+}
+.course-nav {
+  border: 1px solid #dfdfdf;
+  border-top: none;
+  background-color: #fff;
+  padding: 5px 20px;
+}
+.course-nav ul {
+  overflow: auto;
+}
+.course-nav li {
+  float: left;
+  padding: 4px 10px;
+  margin-right: 20px;
+  cursor: pointer;
+}
+.course-nav li.active {
+  color: #fff;
+  background-color: #3481d0;
+}
+.course-detail {
+  margin-top: 20px;
+  background-color: #fff;
+  border: 1px solid #dfdfdf;
+  overflow: auto;
+  /* &>li+li {
+		display: none;
+	} */
+}
+.course-detail .nav-title {
+  height: 40px;
+  line-height: 40px;
+  padding: 0 15px;
+  border-bottom: 1px solid #dfdfdf;
+}
+.course-detail .info {
+  padding: 10px 20px;
+  text-indent: 2em;
+}
+.course-detail .list {
+  padding: 10px 20px;
+}
+.course-detail .list li {
+  margin-top: 10px;
+}
+.course-detail .list .left {
+  float: left;
+}
+.course-detail .list .right {
+  float: left;
+  margin-left: 20px;
+}
+.course-detail .list .right a:hover {
+  color: #3481d0;
+}
+.course-detail .list .right .already {
+  color: #3481d0;
+}
+.course-detail .exam-nav {
+  padding: 20px;
+}
+.course-detail .exam-nav .exam {
+  float: left;
+  width: 220px;
+  border: 1px solid #dfdfdf;
+  margin-top: 30px;
+  margin-right: 30px;
+  padding-top: 57px;
+  padding-bottom: 20px;
+  position: relative;
+}
+.course-detail .exam-nav .exam .title {
+  width: 84px;
+  height: 84px;
+  line-height: 84px;
+  text-align: center;
+  border-radius: 50%;
+  -moz-border-radius: 50%;
+  -webkit-border-radius: 50%;
+  border: 1px solid #dfdfdf;
+  background-color: #fff;
+  position: absolute;
+  top: -42px;
+  left: 68px;
+}
+.course-detail .exam-nav .exam .time-day {
+  height: 48px;
+  padding-left: 10px;
+}
+.course-detail .exam-nav .exam .time-day .time {
+  margin-bottom: 10px;
+}
+.course-detail .exam-nav .exam .time-day .time span {
+  color: #ff0000;
+}
+.course-detail .exam-nav .exam .time-day .day span {
+  color: #ff0000;
+}
+.course-detail .exam-nav .exam .btn {
+  position: absolute;
+  right: 5px;
+  bottom: 10px;
+}
+.course-detail .exam-nav .exam .btn button {
+  width: 76px;
+  height: 30px;
+  line-height: 30px;
+  border: none;
+  color: #fff;
+  border-radius: 2px;
+  -moz-border-radius: 2px;
+  -webkit-border-radius: 2px;
+  background-color: #3481d0;
+  cursor: pointer;
+}
+.course-detail .exam-nav .exam .btn .disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}

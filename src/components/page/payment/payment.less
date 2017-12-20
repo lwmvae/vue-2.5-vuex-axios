@@ -1,0 +1,227 @@
+@import url('../../../assets/css/common.less');
+
+.content {
+	width: 1200px;
+	margin: 0 auto;
+	background-color: #fff;
+	.border;
+}
+
+.payment {
+	.info {
+		height: 70px;
+		line-height: 70px;
+		padding: 0 20px;
+		border-bottom: 1px solid @bgColor;
+	}
+
+	.name {
+		float: left;
+		font-size: 20px;
+
+		p {
+			height: 70px;
+			width: 900px;
+			overflow: hidden;
+			text-overflow: ellipsis;
+			white-space: nowrap;
+		}
+
+		span {
+			color: #666;
+		}
+
+	}
+
+	.money {
+		float: right;
+
+		i, span {
+			font-size: 26px;
+			color: #ff0000;
+			font-family: 'Arial';
+		}
+
+	}
+
+	.mode {
+		margin: 30px 20px 20px;
+
+		ul {
+			margin-left: -30px;
+			margin-top: 20px;
+			overflow: auto;
+		}
+
+		li {
+			float: left;
+			margin-left: 30px;
+			cursor: pointer;
+			position: relative;
+			.border(#ccc);
+
+			img {
+				width: 140px;
+				height: 50px;
+				display: block;
+			}
+
+			i {
+				position: absolute;
+				right: 0;
+				top: 0;
+				display: block;
+				width: 27px;
+				height: 27px;
+				background: url(http://localhost:8080/static/img/qxicon.png) no-repeat -330px -27px;
+			}
+
+		}
+
+		li.active {
+			.border(@bgColor);
+
+			i {
+				background: url(http://localhost:8080/static/img/qxicon.png) no-repeat -330px -156px;
+			}
+
+		}
+
+	}
+
+	.pay {
+		padding: 0 20px;
+		text-align: right;
+		margin-bottom: 20px;
+
+		p {
+			color: #ff0000;
+
+			i, span {
+				font-size: 26px;
+				font-family: 'Arial';
+			}
+
+		}
+
+		a {
+			display: inline-block;
+			margin-top: 10px;
+			width: 130px;
+			height: 40px;
+			line-height: 40px;
+			text-align: center;
+			color: #fff;
+			background-color: #f57a00;
+			font-size: 20px;
+			.border-radius;
+		}
+
+	}
+
+}
+
+/* #add-popup {
+	display: none;
+
+	.gray {
+		width: 100%;
+		height: 100%;
+		background: rgba(0, 0, 0, 0.3);
+		filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#4C000000, endColorstr=#4C000000);
+		position: fixed;
+		top: 0;
+		left: 0;
+	}
+
+	.popup {
+		position: absolute;
+		background-color: #fff;
+	}
+
+	.popup-title {
+		padding: 0 10px;
+		height: 30px;
+		line-height: 30px;
+		background-color: #f3f3f3;
+		color: #000;
+
+		.title {
+			float: left;
+			font-weight: bold;
+		}
+
+		.delete {
+			float: right;
+
+			i {
+				display: block;
+				width: 30px;
+				height: 30px;
+				background: url('../img/qxicon.png') no-repeat -520px -385px;
+				cursor: pointer;
+			}
+
+			&:hover {
+				i {
+					background: url('../img/qxicon.png') no-repeat -520px -512px;
+				}
+
+			}
+
+		}
+
+	}
+
+	.popup-content {
+		overflow-y: auto;
+		max-height: 500px;
+		margin: 50px 100px 0 100px;
+		background-color: #fff;
+
+		p {
+			line-height: 25px;
+		}
+
+		.p1 {
+			font-size: 18px;
+		}
+
+		.p2 {
+			color: #ff0000;
+			margin-top: 10px;
+		}
+
+	}
+
+	.popup-button {
+		padding: 30px 100px;
+
+		button {
+			border: none;
+			outline: none;
+			width: 106px;
+			height: 36px;
+			line-height: 36px;
+			border-radius: 2px;
+			cursor: pointer;
+		}
+
+		.sure {
+			color: #fff;
+			background-color: @bgColor;
+			margin-right: 20px;
+		}
+
+		.cancel {
+			color: #999;
+
+			&:hover {
+				text-decoration: underline;
+			}
+
+		}
+
+	}
+
+} */

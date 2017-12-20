@@ -1,0 +1,602 @@
+.content {
+  width: 1200px;
+  margin: 20px auto 0;
+}
+.data-certificate {
+  float: left;
+  width: 260px;
+}
+.data {
+  border: 1px solid #dfdfdf;
+  background-color: #fff;
+}
+.data .photo {
+  width: 100px;
+  margin: 20px auto;
+  position: relative;
+}
+.data .photo img {
+  width: 100px;
+  height: 100px;
+  overflow: hidden;
+  border-radius: 50%;
+  -moz-border-radius: 50%;
+  -webkit-border-radius: 50%;
+  cursor: pointer;
+}
+.data .photo .img-gray {
+  display: none;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  -moz-border-radius: 50%;
+  -webkit-border-radius: 50%;
+  background: url('http://localhost:8080/static/img/qxicon.png') no-repeat -145px 3px rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+}
+.data .photo:hover .img-gray {
+  display: block;
+}
+.data .photo input {
+  width: 100px;
+  height: 100px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+.data .username p {
+  font-size: 16px;
+  text-align: center;
+  height: 21px;
+  overflow: hidden;
+}
+.data .edit {
+  text-align: center;
+  margin: 30px auto 10px;
+}
+.data .edit a {
+  display: inline-block;
+  padding: 7px 15px;
+  color: #fff;
+  background-color: #3481d0;
+  border-radius: 2px;
+  -moz-border-radius: 2px;
+  -webkit-border-radius: 2px;
+}
+.certificate {
+  border: 1px solid #dfdfdf;
+  background-color: #fff;
+  margin-top: 20px;
+  padding: 0 10px 10px 10px;
+}
+.certificate .title {
+  height: 35px;
+  line-height: 35px;
+  border-bottom: 1px solid #dfdfdf;
+}
+.certificate .title p {
+  float: left;
+  font-size: 16px;
+}
+.certificate .title a {
+  float: right;
+  display: block;
+  height: 35px;
+  line-height: 35px;
+}
+.certificate .title a:hover {
+  color: #3481d0;
+}
+.certificate .list li {
+  height: 35px;
+  line-height: 35px;
+  overflow: hidden;
+  cursor: pointer;
+}
+.certificate .list li i {
+  padding-left: 23px;
+  background: url('http://localhost:8080/static/img/qxicon.png') no-repeat -183px -155px;
+}
+.certificate .list li:hover {
+  color: #3481d0;
+}
+.detail {
+  float: left;
+  width: 910px;
+  margin-left: 27px;
+  margin-bottom: 20px;
+  background-color: #fff;
+  border: 1px solid #dfdfdf;
+}
+.detail-nav {
+  border-bottom: 1px solid #3481d0;
+}
+.detail-nav ul {
+  overflow: auto;
+}
+.detail-nav li {
+  float: left;
+}
+.detail-nav li a {
+  display: inline-block;
+  font-size: 16px;
+  padding: 12px 29px;
+}
+.detail-nav li:hover a {
+  color: #3481d0;
+}
+.detail-nav li.active a {
+  color: #fff;
+  background-color: #3481d0;
+}
+.detail-content {
+  padding: 20px 0;
+  /* 	.content-nav>li:first-child {
+		display: block;
+	} */
+  /* .content-nav>li:nth-child(2) {
+		display: block;
+	} */
+}
+.detail-content .mine-course,
+.detail-content .mine-certificate,
+.detail-content .change-psw {
+  padding: 0 20px;
+}
+.course-nav {
+  border: 1px solid #dfdfdf;
+  width: 100%;
+}
+.course-nav .all {
+  float: left;
+}
+.course-nav .all:hover .a {
+  color: #3481d0;
+}
+.course-nav .all:hover .a.active {
+  color: #fff;
+}
+.course-nav .learing,
+.course-nav .overdue {
+  float: left;
+  position: relative;
+}
+.course-nav .learing:hover .a,
+.course-nav .overdue:hover .a {
+  color: #3481d0;
+}
+.course-nav .learing:hover .a.active,
+.course-nav .overdue:hover .a.active {
+  color: #fff;
+}
+.course-nav .learing:hover i,
+.course-nav .overdue:hover i {
+  background: url('http://localhost:8080/static/img/qxicon.png') no-repeat -188px -274px;
+}
+.course-nav .learing:hover ul,
+.course-nav .overdue:hover ul {
+  display: block;
+}
+.course-nav .a {
+  display: inline-block;
+  width: 100px;
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+  /* padding: 15px 35px; */
+}
+.course-nav .a i {
+  padding-left: 15px;
+  background: url('http://localhost:8080/static/img/qxicon.png') no-repeat -34px -532px;
+}
+.course-nav .a.active {
+  color: #fff;
+  background-color: #3481d0;
+}
+.course-nav .a.active i {
+  background: url('http://localhost:8080/static/img/qxicon.png') no-repeat -33px -652px;
+}
+.course-nav ul {
+  width: 100%;
+  border: 1px solid #3481d0;
+  box-sizing: border-box;
+  display: none;
+  position: absolute;
+  top: 49px;
+  left: 0;
+  background-color: #fff;
+  z-index: 5;
+}
+.course-nav ul a {
+  display: inline-block;
+  width: 100%;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+}
+.course-nav ul a:hover {
+  color: #3481d0;
+  background-color: #efefef;
+}
+.course-nav .course-search {
+  float: right;
+  width: 220px;
+  border: 1px solid #dfdfdf;
+  padding: 7px 5px;
+  margin-top: 7px;
+  margin-right: 20px;
+}
+.course-nav .course-search input {
+  width: 180px;
+  border: none;
+}
+.course-nav .course-search a {
+  padding-left: 30px;
+  border-left: 1px solid #dfdfdf;
+  background: url('http://localhost:8080/static/img/qxicon.png') no-repeat -176px -637px;
+}
+.course-list h5 {
+  display: none;
+  margin-top: 20px;
+  line-height: 40px;
+  font-size: 20px;
+  text-align: center;
+}
+.course-list ul {
+  margin-left: -33px;
+  overflow: auto;
+}
+.course-list li {
+  float: left;
+  width: 265px;
+  border: 1px solid #dfdfdf;
+  margin-top: 20px;
+  margin-left: 33px;
+  overflow: hidden;
+  cursor: pointer;
+}
+.course-list li:hover img {
+  transform: scale(1.05);
+  -o-transform: scale(1.05);
+  -moz-transform: scale(1.05);
+}
+.course-list li:hover .title {
+  color: #3481d0;
+}
+.course-list li .img img {
+  width: 265px;
+  height: 200px;
+  overflow: hidden;
+  transition: all 0.3s linear;
+}
+.course-list li .title {
+  margin: 5px 0;
+  padding-left: 10px;
+  font-size: 16px;
+  transition: all 0.3s linear;
+}
+.course-list li .title p {
+  height: 20px;
+  line-height: 20px;
+  overflow: hidden;
+}
+.course-list li .product {
+  padding: 0 10px 5px 10px;
+  font-size: 16px;
+}
+.course-list li .product .time {
+  float: left;
+  color: #3481d0;
+}
+.course-list li .product .time .span {
+  color: #ff0000;
+}
+.course-list li .product .time .p {
+  color: #ff0000;
+}
+.course-list li .product .card {
+  float: right;
+  color: #3481d0;
+}
+.course-list li .product .card i {
+  padding-left: 20px;
+  background: url('http://localhost:8080/static/img/qxicon.png') no-repeat -186px -154px;
+}
+.course-list li .product .card .exam {
+  color: #ff0000;
+}
+.course-list li .product .card .exam i {
+  background: url('http://localhost:8080/static/img/qxicon.png') no-repeat -185px -393px;
+}
+.course-list li .product .card .forgot {
+  color: #ff0000;
+}
+.course-list li .product .card .forgot i {
+  background: url('http://localhost:8080/static/img/qxicon.png') no-repeat -187px -514px;
+}
+.course-list li .product .card .not-pay {
+  padding: 0 5px;
+  height: 21px;
+  line-height: 21px;
+  font-size: 14px;
+  background-color: #ff0000;
+  color: #fff;
+  border-radius: 2px;
+  -moz-border-radius: 2px;
+  -webkit-border-radius: 2px;
+}
+.mine-certificate h5 {
+  display: none;
+  font-size: 20px;
+  line-height: 40px;
+  text-align: center;
+}
+.mine-certificate ul {
+  margin-left: -33px;
+  margin-top: -20px;
+  overflow: auto;
+}
+.mine-certificate li {
+  float: left;
+  margin-left: 33px;
+  margin-top: 20px;
+}
+.mine-certificate li img {
+  width: 265px;
+  height: 191px;
+  overflow: hidden;
+  cursor: pointer;
+}
+.mine-certificate li p {
+  text-align: center;
+  height: 20px;
+  line-height: 20px;
+  overflow: hidden;
+}
+.mine-certificate .showbigimg {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  z-index: 10;
+  background-color: rgba(0, 0, 0, 0.3);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#4C000000, 0, endColorstr=#4C000000, 0);
+}
+.mine-certificate .showbigimg img {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+.li input {
+  border: 1px solid #dfdfdf;
+  padding-left: 10px;
+  width: 335px;
+  height: 45px;
+  line-height: 45px;
+}
+.li input:focus {
+  border: 1px solid #3481d0;
+}
+.li .left {
+  float: left;
+  width: 72px;
+}
+.li .left span {
+  display: block;
+  text-align: justify;
+  text-justify: inter-ideograph;
+  height: 47px;
+  line-height: 47px;
+  color: #888;
+}
+.li .left span:after {
+  content: '.';
+  width: 100%;
+  display: inline-block;
+  overflow: hidden;
+  height: 0;
+}
+.li .right {
+  width: 750px;
+  float: left;
+  margin-left: 20px;
+}
+.li .right p {
+  font-size: 12px;
+  color: #ec5a47;
+  /* visibility: hidden; */
+}
+.li .right h6.on {
+  color: #ec5a47;
+}
+.personal-data .personal-warn {
+  margin-top: -20px;
+  padding: 10px 0 20px 150px;
+  background-color: #e9e9e9;
+}
+.personal-data .personal-warn p {
+  line-height: 25px;
+  color: #ec5a47;
+}
+.personal-data .personal-warn p i {
+  padding-left: 30px;
+  margin-left: -30px;
+  background: url(http://localhost:8080/static/img/qxicon.png) no-repeat -32px -763px;
+}
+.personal-data .personal-warn span {
+  color: #999;
+  font-size: 12px;
+}
+.personal-data .personal-info {
+  padding: 0 20px;
+}
+.personal-data .personal-info > div {
+  margin-top: 25px;
+  width: 100%;
+}
+.personal-data .audit span,
+.personal-data .explain span {
+  line-height: 25px;
+  height: 25px;
+}
+.personal-data .audit h6,
+.personal-data .explain h6 {
+  line-height: 25px;
+}
+.personal-data .sex {
+  line-height: 25px;
+}
+.personal-data .sex .left span {
+  height: 25px;
+  line-height: 25px;
+}
+.personal-data .sex .right span {
+  margin-right: 30px;
+}
+.personal-data .sex input {
+  width: 16px;
+  height: 16px;
+  margin-right: 3px;
+  position: relative;
+  top: 3px;
+  border: none;
+}
+.personal-data .idimg .left span {
+  line-height: 20px;
+}
+.personal-data .idimg li {
+  width: 150px;
+  text-align: center;
+  float: left;
+  margin-right: 40px;
+}
+.personal-data .idimg li img {
+  width: 150px;
+  height: 100px;
+}
+.personal-data .idimg li .upload-img {
+  position: relative;
+  height: 100px;
+  overflow: hidden;
+}
+.personal-data .idimg li .upload-img:hover .upload {
+  display: block;
+}
+.personal-data .idimg li .upload {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.3);
+}
+.personal-data .idimg li .upload button {
+  margin-top: 35px;
+  width: 70px;
+  height: 30px;
+  line-height: 30px;
+  color: #fff;
+  border: none;
+  background-color: #3481d0;
+  cursor: pointer;
+}
+.change-psw .new-psw {
+  margin-top: 10px;
+  width: 100%;
+}
+.change-psw .sure-psw {
+  margin-top: 20px;
+  width: 100%;
+}
+.btn {
+  margin-left: 92px;
+  margin-top: 15px;
+}
+.btn button {
+  width: 87px;
+  height: 35px;
+  line-height: 35px;
+  font-size: 16px;
+  color: #fff;
+  border-radius: 2px;
+  -moz-border-radius: 2px;
+  -webkit-border-radius: 2px;
+  cursor: pointer;
+}
+.btn .save {
+  border: 1px solid #2f74ba;
+  background-color: #3481d0;
+  color: #fff;
+  margin-right: 30px;
+}
+.btn .cancel {
+  border: 1px solid #b5b5b5;
+  background-color: #efefef;
+  color: #333;
+}
+.mine-exam {
+  padding: 0 20px;
+}
+.mine-exam h5 {
+  display: none;
+  text-align: center;
+  font-size: 16px;
+  line-height: 30px;
+}
+.mine-exam table {
+  width: 100%;
+  text-align: center;
+}
+.mine-exam table th {
+  font-size: 16px;
+}
+.mine-exam table tr {
+  height: 45px;
+  border: 1px solid #dfdfdf;
+}
+.mine-exam table tr a {
+  display: inline-block;
+  width: 76px;
+  text-align: center;
+  height: 30px;
+  line-height: 30px;
+  background-color: #3481d0;
+  color: #fff;
+  border-radius: 2px;
+  -moz-border-radius: 2px;
+  -webkit-border-radius: 2px;
+}
+.mine-exam .page {
+  margin: 10px 0;
+  text-align: center;
+}
+.mine-exam .page > div {
+  display: inline-block;
+}
+.mine-exam .page a {
+  display: inline-block;
+  width: 28px;
+  height: 28px;
+  line-height: 28px;
+  margin-left: 5px;
+  border: 1px solid #dfdfdf;
+  background-color: #fff;
+}
+.mine-exam .page a.on {
+  border: 1px solid #3481d0;
+  color: #3481d0;
+}
+.mine-exam .page a.notAllow {
+  cursor: not-allowed;
+  color: #dfdfdf;
+}

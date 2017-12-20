@@ -1,0 +1,117 @@
+.content {
+  height: 590px;
+  border-top: 1px solid #dfdfdf;
+  background-color: #5f9bfd;
+}
+.content-wrapper {
+  width: 1200px;
+  height: 590px;
+  margin: 0 auto;
+  background: url('http://localhost:8080/static/img/loginbg.png');
+}
+.content-wrapper .img {
+  float: left;
+  margin-top: 160px;
+  margin-left: 75px;
+}
+.login {
+  float: right;
+  margin-right: 75px;
+  width: 410px;
+  margin-top: 86px;
+  padding: 40px 30px;
+  box-sizing: border-box;
+  background-color: #fff;
+}
+.login input {
+  border: 1px solid #dfdfdf;
+  padding-left: 10px;
+  width: 335px;
+  height: 45px;
+  line-height: 45px;
+}
+.login input:focus {
+  border: 1px solid #ec5a47;
+}
+.login p {
+  color: #ec5a47;
+  font-size: 12px;
+}
+.login .title {
+  font-size: 22px;
+  color: #ec5a47;
+  margin-bottom: 30px;
+}
+.login .password {
+  margin-top: 20px;
+}
+.login button {
+  width: 100%;
+  height: 47px;
+  line-height: 47px;
+  font-size: 16px;
+  color: #fff;
+  background-color: #ec5a47;
+  border: none;
+  border-radius: 2px;
+  -moz-border-radius: 2px;
+  -webkit-border-radius: 2px;
+  cursor: pointer;
+}
+.login .img-code,
+.login .text-code {
+  margin-top: 20px;
+}
+.login .img-code input,
+.login .text-code input {
+  float: left;
+  width: 220px;
+}
+.login .img-code img,
+.login .text-code img {
+  float: left;
+  margin-left: 15px;
+  width: 100px;
+  height: 45px;
+  overflow: hidden;
+  border: 1px solid #999;
+  cursor: pointer;
+}
+.login .img-code button,
+.login .text-code button {
+  float: left;
+  width: 102px;
+  margin-left: 15px;
+}
+.login .text-code button {
+  font-size: 14px;
+}
+.login .disabled {
+  cursor: not-allowed;
+  background-color: #ccc;
+}
+.login .warn {
+  font-size: 12px;
+  color: #ec5a47;
+}
+.login .button {
+  margin-top: 20px;
+}
+.login .button button {
+  width: 100%;
+}
+.login .aside {
+  margin-top: 3px;
+}
+.login .aside .register {
+  float: left;
+}
+.login .aside .register a {
+  color: #ec5a47;
+}
+.login .aside .change {
+  float: right;
+}
+.login .aside .change a {
+  color: #999;
+}

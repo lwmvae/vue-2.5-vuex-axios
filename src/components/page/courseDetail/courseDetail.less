@@ -1,0 +1,229 @@
+@import url('../../../assets/css/common.less');
+
+.content {
+	width: 1200px;
+	margin: 0 auto;
+}
+
+.detail-title {
+	.border;
+	padding: 20px 5px 20px 20px;
+	margin-top: 20px;
+	background-color: #fff;
+	overflow: auto;
+}
+
+.title-left {
+	float: left;
+
+	img {
+		width: 335px;
+		height: 250px;
+		overflow: hidden;
+	}
+
+}
+
+.title-right {
+	float: left;
+	margin-left: 40px;
+	width: 790px;
+
+	h1 {
+		font-size: 22px;
+	}
+
+	.purchase {
+		color: #666;
+		margin: 10px 0;
+
+		i {
+			padding-left: 17px;
+			background: url('http://localhost:8080/static/img/qxicon.png') no-repeat -345px -275px;
+		}
+
+	}
+
+	.title-content {
+		p {
+			height: 66px;
+			line-height: 22px;
+			text-indent: 2em;
+			overflow: hidden;
+		}
+
+	}
+
+	.price {
+		font-size: 30px;
+		color: #ff0000;
+		margin: 15px 0;
+		font-family: 'Arial';
+	}
+
+	button {
+		width: 160px;
+		height: 45px;
+		line-height: 45px;
+		border: none;
+		color: #fff;
+		font-size: 20px;
+		.border-radius;
+		background-color: @bgColor;
+	}
+
+	.join {
+		background-color: #ff8000;
+		cursor: pointer;
+	}
+
+}
+
+.course-nav {
+	.border;
+	border-top: none;
+	background-color: #fff;
+	padding: 5px 20px;
+
+	ul {
+		overflow: auto;
+	}
+
+	li {
+		float: left;
+		padding: 4px 10px;
+		margin-right: 20px;
+		cursor: pointer;
+	}
+
+	li.active {
+		color: #fff;
+		background-color: @bgColor;
+	}
+
+}
+
+.course-detail {
+	margin-top: 20px;
+	background-color: #fff;
+	.border;
+	overflow: auto;
+
+	/* &>li+li {
+		display: none;
+	} */
+	.nav-title {
+		height: 40px;
+		line-height: 40px;
+		padding: 0 15px;
+		border-bottom: 1px solid #dfdfdf;
+	}
+
+	.info {
+		padding: 10px 20px;
+		text-indent: 2em;
+	}
+
+	.list {
+		padding: 10px 20px;
+
+		li {
+			margin-top: 10px;
+		}
+
+		.left {
+			float: left;
+		}
+
+		.right {
+			float: left;
+			margin-left: 20px;
+
+			a:hover {
+				color: @bgColor;
+			}
+
+			.already {
+				color: @bgColor;
+			}
+
+		}
+
+	}
+
+	.exam-nav {
+		padding: 20px;
+
+		.exam {
+			float: left;
+			width: 220px;
+			.border;
+			margin-top: 30px;
+			margin-right: 30px;
+			padding-top: 57px;
+			padding-bottom: 20px;
+			position: relative;
+
+			.title {
+				width: 84px;
+				height: 84px;
+				line-height: 84px;
+				text-align: center;
+				.border-radius(50%);
+				.border;
+				background-color: #fff;
+				position: absolute;
+				top: -42px;
+				left: 68px;
+			}
+
+			.time-day {
+				height: 48px;
+				padding-left: 10px;
+
+				.time {
+					margin-bottom: 10px;
+
+					span {
+						color: #ff0000;
+					}
+
+				}
+
+				.day {
+					span {
+						color: #ff0000;
+					}
+
+				}
+
+			}
+
+			.btn {
+				position: absolute;
+				right: 5px;
+				bottom: 10px;
+
+				button {
+					width: 76px;
+					height: 30px;
+					line-height: 30px;
+					border: none;
+					color: #fff;
+					.border-radius;
+					background-color: @bgColor;
+					cursor: pointer;
+				}
+
+				.disabled {
+					background-color: #ccc;
+					cursor: not-allowed;
+				}
+
+			}
+
+		}
+
+	}
+
+}

@@ -1,0 +1,150 @@
+.banner {
+  width: 100%;
+  min-width: 1200px;
+  height: 402px;
+  background: url('http://localhost:8080/static/img/qxbgimg.png');
+}
+
+.banner .banner-wrapper {
+  width: 1200px;
+  margin: 0 auto;
+}
+
+.content {
+  width: 1200px;
+  margin: 20px auto;
+}
+
+.banner .banner-wrapper img {
+  margin-top: 30px;
+}
+
+.hot-course {
+  margin-top: 20px;
+  border: 1px solid #dfdfdf;
+  background-color: #fff;
+}
+
+.hot-course .course-title {
+  height: 73px;
+  line-height: 73px;
+  padding-left: 20px;
+  border-bottom: 2px solid #dfdfdf;
+}
+
+.hot-course .course-title span {
+  padding-left: 25px;
+  font-size: 24px;
+  background: url('http://localhost:8080/static/img/qxicon.png') no-repeat -33px -148px;
+}
+
+.hot-course ul {
+  margin-left: -10px;
+  padding-bottom: 20px;
+  width: 100%;
+}
+
+.hot-course li {
+  float: left;
+  width: 265px;
+  border: 1px solid #dfdfdf;
+  margin-top: 20px;
+  margin-left: 30px;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.hot-course li:hover img {
+  transform: scale(1.05);
+  -o-transform: scale(1.05);
+  -moz-transform: scale(1.05);
+}
+
+.hot-course li:hover .title {
+  color: #3481d0;
+}
+
+.hot-course li .img img {
+  width: 265px;
+  height: 200px;
+  overflow: hidden;
+  transition: all 0.3s linear;
+}
+
+.hot-course li .title {
+  margin: 5px 0;
+  padding-left: 10px;
+  font-size: 16px;
+  transition: all 0.3s linear;
+}
+
+.hot-course li .title p {
+  height: 20px;
+  line-height: 20px;
+  overflow: hidden;
+}
+
+.hot-course li .product {
+  padding: 0 10px 5px 10px;
+}
+
+.hot-course li .product .price {
+  float: left;
+  font-size: 20px;
+  color: #ff0000;
+  font-family: 'Arial';
+}
+
+.hot-course li .product .purchase {
+  float: right;
+  color: #666;
+  line-height: 26px;
+}
+
+.certificate {
+  margin-top: 20px;
+  border: 1px solid #dfdfdf;
+  background-color: #fff;
+}
+
+.certificate .certificate-title {
+  height: 73px;
+  line-height: 73px;
+  padding-left: 20px;
+  border-bottom: 2px solid #dfdfdf;
+}
+
+.certificate .certificate-title span {
+  padding-left: 25px;
+  font-size: 24px;
+  background: url('http://localhost:8080/static/img/qxicon.png') no-repeat -33px -20px;
+}
+
+.certificate table {
+  text-align: center;
+}
+
+.certificate table tr {
+  border-bottom: 1px solid #dfdfdf;
+}
+
+.certificate table td {
+  height: 45px;
+}
+
+.certificate .table-head {
+  margin-top: 20px;
+  background-color: #3481d0;
+  color: #fff;
+  font-size: 16px;
+}
+
+.certificate .table-content {
+  max-height: 315px;
+  overflow: hidden;
+}
+
+.certificate .table-foot {
+  background-color: #3481d0;
+  height: 20px;
+}

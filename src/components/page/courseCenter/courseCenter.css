@@ -1,0 +1,156 @@
+.content {
+  width: 1200px;
+  margin: 0 auto;
+}
+
+.nav-course {
+  margin-top: 20px;
+  padding: 10px;
+  border: 1px solid #dfdfdf;
+  background-color: #fff;
+}
+
+.nav-course ul {
+  margin-left: -103px;
+  overflow: auto;
+}
+
+.nav-course li {
+  float: left;
+  margin-left: 103px;
+}
+
+.nav-course li a {
+  display: inline-block;
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 2px;
+  -moz-border-radius: 2px;
+  -webkit-border-radius: 2px;
+}
+
+.nav-course li.active a {
+  background-color: #2f74ba;
+  color: #fff;
+}
+
+.course {
+  margin-top: 20px;
+}
+
+.course h5 {
+  // display: none;
+  text-align: center;
+  font-size: 16px;
+  line-height: 30px;
+}
+
+.course ul {
+  margin-left: -44px;
+  padding-bottom: 20px;
+  overflow: auto;
+}
+
+.course li {
+  float: left;
+  width: 265px;
+  background-color: #fff;
+  border: 1px solid #dfdfdf;
+  margin-top: 20px;
+  margin-left: 44px;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.course li:hover img {
+  transform: scale(1.05);
+  -o-transform: scale(1.05);
+  -moz-transform: scale(1.05);
+}
+
+.course li:hover .title {
+  color: #3481d0;
+}
+
+.course li .img img {
+  width: 265px;
+  height: 200px;
+  overflow: hidden;
+  transition: all 0.3s linear;
+}
+
+.course li .title {
+  margin: 5px 0;
+  padding-left: 10px;
+  font-size: 16px;
+  transition: all 0.3s linear;
+}
+
+.course li .title p {
+  height: 20px;
+  line-height: 20px;
+  overflow: hidden;
+}
+
+.course li .product {
+  padding: 0 10px 5px 10px;
+}
+
+.course li .product .price {
+  float: left;
+  font-size: 20px;
+  color: #ff0000;
+  line-height: 30px;
+  font-family: 'Arial';
+}
+
+.course li .product .purchase {
+  float: right;
+}
+
+.course li .product .purchase a {
+  color: #666;
+  line-height: 30px;
+}
+
+.course li .product .purchase .btn {
+  display: block;
+  width: 76px;
+  text-align: center;
+  height: 30px;
+  line-height: 30px;
+  background-color: #ec5a47;
+  color: #fff;
+  border-radius: 2px;
+  -moz-border-radius: 2px;
+  -webkit-border-radius: 2px;
+}
+
+.page {
+  padding: 10px 0;
+  text-align: center;
+}
+
+.page > div {
+  display: inline-block;
+}
+
+.page a {
+  display: inline-block;
+  width: 28px;
+  height: 28px;
+  line-height: 28px;
+  margin-left: 5px;
+  border: 1px solid #dfdfdf;
+  background-color: #fff;
+}
+
+.page a.on {
+  border: 1px solid #3481d0;
+  color: #3481d0;
+}
+
+.page a.notAllow {
+  cursor: not-allowed;
+  color: #dfdfdf;
+}

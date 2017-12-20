@@ -1,0 +1,121 @@
+@import url('../../../assets/css/common.less');
+
+.content {
+	width: @width;
+	margin: 0 auto;
+	position: relative;
+}
+
+.content-wrapper {
+	width: 440px;
+	background-color: #fff;
+	.border;
+	border-top: none;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+
+	.result-head {
+		margin-left: -43px;
+		margin-bottom: 20px;
+	}
+
+	.result {
+		height: 200px;
+		margin: 0 auto;
+		text-align: center;
+
+		.score {
+			font-size: 30px;
+			color: #666;
+			line-height: 200px;
+
+			span {
+				font-size: 60px;
+				font-family: 'Arial';
+			}
+
+		}
+
+	}
+
+	.result-success {
+		width: 320px;
+		padding-top: 40px;
+		background: url('http://localhost:8080/static/img/passbgimg.png');
+	}
+
+	.result-fail {
+		width: 200px;
+		margin-top: 50px;
+		border: 1px solid #999;
+		border-radius: (50%);
+	}
+
+	.result-explain {
+		margin: 25px 0;
+		font-size: 20px;
+		color: @bgColor;
+		text-align: center;
+
+		p {
+			color: #ed5a46;
+		}
+
+	}
+
+	.result-return {
+		height: 100px;
+		background-color: #efefef;
+
+		a {
+			display: inline-block;
+			padding: 9px 20px;
+			color: #fff;
+			background-color: @bgColor;
+			.border-radius;
+			font-size: 20px;
+			cursor: pointer;
+		}
+
+		.view {
+			float: left;
+			width: 220px;
+			height: 80px;
+			border-right: 1px solid #ccc;
+			text-align: center;
+			margin-top: 10px;
+
+			a {
+				margin-top: 13px;
+				background-color: #f57a00;
+			}
+
+			.a {
+				background-color: #ed5a46;
+			}
+
+		}
+
+		.return {
+			float: left;
+			width: 219px;
+			height: 80px;
+			text-align: center;
+			margin-top: 10px;
+
+			a {
+				margin-top: 13px;
+			}
+
+		}
+
+	}
+
+	.result-footer {
+		height: 20px;
+		background-color: #aaa;
+	}
+
+}

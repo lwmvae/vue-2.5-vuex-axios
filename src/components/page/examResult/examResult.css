@@ -1,0 +1,97 @@
+.content {
+  width: 1200px;
+  margin: 0 auto;
+  position: relative;
+}
+.content-wrapper {
+  width: 440px;
+  background-color: #fff;
+  border: 1px solid #dfdfdf;
+  border-top: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.content-wrapper .result-head {
+  margin-left: -43px;
+  margin-bottom: 20px;
+}
+.content-wrapper .result {
+  height: 200px;
+  margin: 0 auto;
+  text-align: center;
+}
+.content-wrapper .result .score {
+  font-size: 30px;
+  color: #666;
+  line-height: 200px;
+}
+.content-wrapper .result .score span {
+  font-size: 60px;
+  font-family: 'Arial';
+}
+.content-wrapper .result-success {
+  width: 320px;
+  padding-top: 40px;
+  background: url('http://localhost:8080/static/img/passbgimg.png');
+}
+.content-wrapper .result-fail {
+  width: 200px;
+  margin-top: 50px;
+  border: 1px solid #999;
+  border-radius: 50%;
+}
+.content-wrapper .result-explain {
+  margin: 25px 0;
+  font-size: 20px;
+  color: #3481d0;
+  text-align: center;
+}
+.content-wrapper .result-explain p {
+  color: #ed5a46;
+}
+.content-wrapper .result-return {
+  height: 100px;
+  background-color: #efefef;
+}
+.content-wrapper .result-return a {
+  display: inline-block;
+  padding: 9px 20px;
+  color: #fff;
+  background-color: #3481d0;
+  border-radius: 2px;
+  -moz-border-radius: 2px;
+  -webkit-border-radius: 2px;
+  font-size: 20px;
+  cursor: pointer;
+}
+.content-wrapper .result-return .view {
+  float: left;
+  width: 220px;
+  height: 80px;
+  border-right: 1px solid #ccc;
+  text-align: center;
+  margin-top: 10px;
+}
+.content-wrapper .result-return .view a {
+  margin-top: 13px;
+  background-color: #f57a00;
+}
+.content-wrapper .result-return .view .a {
+  background-color: #ed5a46;
+}
+.content-wrapper .result-return .return {
+  float: left;
+  width: 219px;
+  height: 80px;
+  text-align: center;
+  margin-top: 10px;
+}
+.content-wrapper .result-return .return a {
+  margin-top: 13px;
+}
+.content-wrapper .result-footer {
+  height: 20px;
+  background-color: #aaa;
+}

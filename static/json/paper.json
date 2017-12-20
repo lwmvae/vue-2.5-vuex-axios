@@ -1,0 +1,47 @@
+{
+  "info":
+  {
+    "courseName": "科研机构实验室",
+    "score": 100,
+    "paperName": "科研机构实验室试卷"
+  },
+  "single": [
+  {
+    "fraction": 2,
+    "content": "在微信中发两位这个BUG的原理是怎样的？",
+    "sourse": ["http://localhost:8080/static/img/demo.jpg", "http://localhost:8080/static/img/test.jpg"],
+    "option": ["变大", "变小", "先变大再变小", "不变"]
+  },
+  {
+    "fraction": 2,
+    "content": "这个BUG的原理是怎样的？在微信中发两位",
+    "sourse": [],
+    "option": ["变小", "先变大再变小", "变大", "不变"]
+  }],
+  "double": [
+  {
+    "fraction": 5,
+    "content": "在微信中发两位这个BUG的原理是怎样的？",
+    "sourse": ["http://localhost:8080/static/img/demo.jpg"],
+    "option": ["变大", "变小", "先变大再变小", "先变小再变大", "不变"]
+  },
+  {
+    "fraction": 5,
+    "content": "这个BUG的原理是怎样的？在微信中发两位",
+    "sourse": [],
+    "option": ["变小", "先变大再变小", "变大", "不变"]
+  }],
+  "judge": [
+  {
+    "fraction": 3,
+    "content": "在微信中发两位这个BUG的原理是怎样的？",
+    "sourse": [],
+    "option": ["正确", "错误"]
+  },
+  {
+    "fraction": 3,
+    "content": "这个BUG的原理是怎样的？在微信中发两位",
+    "sourse": ["http://localhost:8080/static/img/demo.jpg"],
+    "option": ["正确", "错误"]
+  }]
+}
