@@ -40,7 +40,7 @@
             </div>
             <div class="aside-down">
               <div class="remaining-time">
-                <i></i>剩余时间：<span>00:00:00</span>
+                <i></i>剩余时间：<span>{{count}}</span>
               </div>
               <div class="legend">
                 <h6>说明</h6>
@@ -108,6 +108,7 @@
 import vHead from '../../common/head.vue'
 import vFoot from '../../common/foot.vue'
 import subject from '../subject/subject.vue'
+var time =0;
 export default {
   data() {
     return {
@@ -117,7 +118,8 @@ export default {
       single: [],
       double: [],
       judge: [],
-      showPaper: true
+      showPaper: true,
+      count:"00:00:00"
     }
   },
   methods: {
@@ -130,6 +132,29 @@ export default {
     },
     assignment: function() {
       this.$router.push('/paper/examResult');
+    },
+    countDown: function(time) {
+      var t = time;
+      var h = 0,
+        m = 0,
+        s = 0;
+      if (t >= 0) {
+        h = Math.floor(t / 60 / 60 % 24);
+        m = Math.floor(t / 60 % 60);
+        s = Math.floor(t % 60);
+      }
+
+      function checkTime(i) {
+        return i < 10 ? "0" + i : i;
+      }
+
+      h = checkTime(h);
+      m = checkTime(m);
+      s = checkTime(s);
+      return h + ':' + m + ':' + s;
+    },
+    callback:function(){
+      // this.$router.push('/');
     }
   },
   created() {
@@ -140,10 +165,20 @@ export default {
       this.double = data.double;
       this.judge = data.judge;
       this.score = this.sum(this.single) + this.sum(this.double) + this.sum(this.judge);
+      time=this.info.paperTime;
     }, (error) => { console.log('失败') })
   },
   mounted() {
-    this.showPaper = false;
+    var self=this;
+    self.showPaper = false;
+    var timer = window.setInterval(function() {
+      time--;
+      self.count=self.countDown(time);
+      if (time < 0) {
+        clearInterval(timer);
+        self.callback();
+      }
+    }, 1000);
   },
   components: {
     vHead,

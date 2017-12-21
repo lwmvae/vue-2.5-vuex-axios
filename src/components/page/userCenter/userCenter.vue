@@ -16,7 +16,7 @@
       </div>
       <div class="certificate">
         <div class="title clearFix">
-          <p>取得证书</p>
+          <p>所获证书</p>
           <a href="javascript:;" @click="viewMore">更多</a>
         </div>
         <div class="list">
@@ -148,7 +148,7 @@
                   <span>用户名</span>
                 </div>
                 <div class="right">
-                  <input type="text">
+                  <input type="text" :value="info.userName">
                 </div>
               </div>
               <div class="name clearFix">
@@ -156,7 +156,7 @@
                   <span>真实姓名</span>
                 </div>
                 <div class="right">
-                  <input type="text">
+                  <input type="text" :value="info.name">
                 </div>
               </div>
               <div class="sex clearFix">
@@ -173,7 +173,7 @@
                   <span>身份证号码</span>
                 </div>
                 <div class="right">
-                  <input type="text">
+                  <input type="text" :value="info.idCard">
                 </div>
               </div>
               <div class="idimg clearFix">
@@ -208,7 +208,7 @@
                   <span>手机号码</span>
                 </div>
                 <div class="right">
-                  <input type="text">
+                  <input type="text" :value="info.phoneNum">
                 </div>
               </div>
               <div class="adress clearFix">

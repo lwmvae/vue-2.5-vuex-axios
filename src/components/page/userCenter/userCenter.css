@@ -96,7 +96,6 @@
   height: 35px;
   line-height: 35px;
   overflow: hidden;
-  cursor: pointer;
 }
 .certificate .list li i {
   padding-left: 23px;
@@ -136,12 +135,6 @@
 }
 .detail-content {
   padding: 20px 0;
-  /* 	.content-nav>li:first-child {
-		display: block;
-	} */
-  /* .content-nav>li:nth-child(2) {
-		display: block;
-	} */
 }
 .detail-content .mine-course,
 .detail-content .mine-certificate,
@@ -188,7 +181,6 @@
   height: 50px;
   line-height: 50px;
   text-align: center;
-  /* padding: 15px 35px; */
 }
 .course-nav .a i {
   padding-left: 15px;
@@ -350,7 +342,7 @@
   width: 265px;
   height: 191px;
   overflow: hidden;
-  cursor: pointer;
+  cursor: url(http://localhost:8080/static/img/magnifier.ico), auto;
 }
 .mine-certificate li p {
   text-align: center;
@@ -366,7 +358,6 @@
   top: 0;
   z-index: 10;
   background-color: rgba(0, 0, 0, 0.3);
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#4C000000, 0, endColorstr=#4C000000, 0);
 }
 .mine-certificate .showbigimg img {
   position: absolute;
@@ -375,6 +366,7 @@
   -webkit-transform: translate(-50%, -50%);
   -ms-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
+  cursor: url(http://localhost:8080/static/img/narrow.ico), auto;
 }
 .li input {
   border: 1px solid #dfdfdf;

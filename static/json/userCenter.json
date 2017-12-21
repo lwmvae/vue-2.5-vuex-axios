@@ -2,7 +2,10 @@
   "info":
   {
     "userName": "张三",
-    "userAvatar": "http://localhost:8080/static/img/header.jpg"
+    "userAvatar": "http://localhost:8080/static/img/header.jpg",
+    "name": "张三丰",
+    "idCard": "411526198902125166",
+    "phoneNum": "13011190595"
   },
   "certificateList": [
   {

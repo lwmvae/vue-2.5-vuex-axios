@@ -119,7 +119,6 @@
 			height: 35px;
 			line-height: 35px;
 			overflow: hidden;
-			cursor: pointer;
 
 			i {
 				padding-left: 23px;
@@ -183,18 +182,6 @@
 .detail-content {
 	padding: 20px 0;
 
-	.content-nav>li {
-		// display: none;
-	}
-
-	/* 	.content-nav>li:first-child {
-		display: block;
-	} */
-
-	/* .content-nav>li:nth-child(2) {
-		display: block;
-	} */
-
 	.mine-course, .mine-certificate, .change-psw {
 		padding: 0 20px;
 	}
@@ -253,7 +240,6 @@
 		line-height: 50px;
 		text-align: center;
 
-		/* padding: 15px 35px; */
 		i {
 			padding-left: 15px;
 			background: url('http://localhost:8080/static/img/qxicon.png') no-repeat -34px -532px;
@@ -467,7 +453,7 @@
 			width: 265px;
 			height: 191px;
 			overflow: hidden;
-			cursor: pointer;
+			cursor: url(http://localhost:8080/static/img/magnifier.ico), auto;
 		}
 
 		p {
@@ -480,7 +466,6 @@
 	}
 
 	.showbigimg {
-		// display: none;
 		position: fixed;
 		width: 100%;
 		height: 100%;
@@ -488,7 +473,6 @@
 		top: 0;
 		z-index: 10;
 		background-color: rgba(0, 0, 0, 0.3);
-		filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#4C000000, endColorstr=#4C000000);
 
 		img {
 			position: absolute;
@@ -497,6 +481,7 @@
 			-webkit-transform: translate(-50%, -50%);
 			-ms-transform: translate(-50%, -50%);
 			transform: translate(-50%, -50%);
+			cursor: url(http://localhost:8080/static/img/narrow.ico), auto;
 		}
 
 	}

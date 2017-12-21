@@ -1,7 +1,7 @@
 <template>
   <div>
     <ul>
-      <li v-for="item in subjectList">
+      <li v-for="(item,index) in subjectList">
         <div class="subject clearFix">
           <p><i>{{num}}</i><span>(分数：{{item.fraction}})</span>{{item.content}}</p>
           <a href="javascript:;" class="doubtful">存疑</a>

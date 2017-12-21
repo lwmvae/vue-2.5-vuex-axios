@@ -5,6 +5,7 @@
     "score": 100,
     "paperName": "科研机构实验室试卷",
     "userName": "张三丰",
+    "paperTime": 7200,
     "userAvatar": "http://localhost:8080/static/img/header.jpg"
   },
   "single": [

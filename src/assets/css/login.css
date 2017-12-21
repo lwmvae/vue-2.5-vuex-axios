@@ -36,6 +36,9 @@
   border: 1px solid #ec5a47;
 }
 .login p {
+  position: absolute;
+  left: 0;
+  top: 48px;
   color: #ec5a47;
   font-size: 12px;
 }
@@ -85,6 +88,9 @@
   width: 102px;
   margin-left: 15px;
 }
+.login .text-code {
+  position: relative;
+}
 .login .text-code button {
   font-size: 14px;
 }
@@ -92,12 +98,8 @@
   cursor: not-allowed;
   background-color: #ccc;
 }
-.login .warn {
-  font-size: 12px;
-  color: #ec5a47;
-}
 .login .button {
-  margin-top: 20px;
+  margin-top: 30px;
 }
 .login .button button {
   width: 100%;
