@@ -108,7 +108,7 @@
 import vHead from '../../common/head.vue'
 import vFoot from '../../common/foot.vue'
 import subject from '../subject/subject.vue'
-var time =0;
+var time = 0;
 export default {
   data() {
     return {
@@ -119,7 +119,7 @@ export default {
       double: [],
       judge: [],
       showPaper: true,
-      count:"00:00:00"
+      count: "00:00:00"
     }
   },
   methods: {
@@ -153,7 +153,7 @@ export default {
       s = checkTime(s);
       return h + ':' + m + ':' + s;
     },
-    callback:function(){
+    callback: function() {
       // this.$router.push('/');
     }
   },
@@ -165,15 +165,15 @@ export default {
       this.double = data.double;
       this.judge = data.judge;
       this.score = this.sum(this.single) + this.sum(this.double) + this.sum(this.judge);
-      time=this.info.paperTime;
+      time = this.info.paperTime;
     }, (error) => { console.log('失败') })
   },
   mounted() {
-    var self=this;
+    var self = this;
     self.showPaper = false;
     var timer = window.setInterval(function() {
       time--;
-      self.count=self.countDown(time);
+      self.count = self.countDown(time);
       if (time < 0) {
         clearInterval(timer);
         self.callback();
