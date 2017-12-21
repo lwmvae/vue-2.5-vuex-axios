@@ -1,3 +1,24 @@
+.loading {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: #f6f6f6;
+  z-index: 200;
+}
+.loading p {
+  font-size: 30px;
+  margin: 50px 0;
+  text-align: center;
+}
+.loading p img {
+  width: 32px;
+  height: 32px;
+  position: relative;
+  top: 4px;
+  left: 5px;
+}
 .content {
   padding-bottom: 20px;
   width: 1200px;
@@ -208,105 +229,4 @@
   height: 50px;
   line-height: 50px;
   color: #888;
-}
-.content .subject {
-  position: relative;
-  padding: 10px 10px 10px 30px;
-  border-bottom: 1px solid #dfdfdf;
-}
-.content .subject p {
-  line-height: 25px;
-  padding-bottom: 10px;
-}
-.content .subject i {
-  position: absolute;
-  top: 10px;
-  left: 3px;
-  display: block;
-  width: 25px;
-  height: 25px;
-  line-height: 25px;
-  text-align: center;
-  color: #fff;
-  background-color: #3481d0;
-  border-radius: 50%;
-  -moz-border-radius: 50%;
-  -webkit-border-radius: 50%;
-}
-.content .subject span {
-  color: #888;
-  margin-right: 5px;
-}
-.content .subject a {
-  position: absolute;
-  right: 10px;
-  bottom: 0;
-  padding-left: 20px;
-  color: #ff3408;
-  background: url(http://localhost:8080/static/img/qxicon.png) no-repeat -342px -867px;
-}
-.content .subject a.active {
-  background: url(http://localhost:8080/static/img/qxicon.png) no-repeat -342px -756px;
-}
-.content .source {
-  padding: 0 20px 0 30px;
-}
-.content .source .source-detail {
-  position: relative;
-  margin-top: 10px;
-  text-align: center;
-}
-.content .source .source-detail .close {
-  display: none;
-  position: absolute;
-  right: 0;
-  top: 0;
-  width: 40px;
-  height: 40px;
-  background: url(http://localhost:8080/static/img/qxicon.png) no-repeat -514px -266px;
-  cursor: pointer;
-}
-.content .source .source-detail img {
-  max-width: 100%;
-  cursor: url('http://localhost:8080/static/img/narrow.ico'), auto;
-}
-.content .source .source-wrapper {
-  margin-top: 10px;
-}
-.content .source .source-wrapper img {
-  width: 52px;
-  height: 52px;
-  margin-right: 10px;
-  overflow: hidden;
-  cursor: pointer;
-}
-.content .source .source-wrapper .img {
-  cursor: url('http://localhost:8080/static/img/magnifier.ico'), auto;
-}
-.content .option {
-  padding: 0 20px 10px 30px;
-  /* p {
-			margin-top: 20px;
-			color: #999;
-		} */
-}
-.content .option li {
-  margin-top: 20px;
-  cursor: pointer;
-}
-.content .option li span {
-  padding-left: 23px;
-  margin-right: 5px;
-}
-.content .option-single li span {
-  background: url(http://localhost:8080/static/img/qxicon.png) no-repeat -341px -638px;
-}
-.content .option-single li.active span {
-  background: url(http://localhost:8080/static/img/qxicon.png) no-repeat -341px -515px;
-}
-.content .option-double li span {
-  background: url(http://localhost:8080/static/img/qxicon.png) no-repeat -527px -154px;
-}
-.content .option-double li.active span {
-  background: url(http://localhost:8080/static/img/qxicon.png) no-repeat -527px -24px;
 }

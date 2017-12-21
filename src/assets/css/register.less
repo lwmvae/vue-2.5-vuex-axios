@@ -144,89 +144,94 @@
 
 }
 
-/* #add-popup {
-.gray {
-width: 100%;
-height: 100%;
-background: rgba(0, 0, 0, 0.3);
-filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#4C000000, endColorstr=#4C000000);
-position: fixed;
-top: 0;
-left: 0;
+#add-popup {
+	width: 100%;
+	height: 100%;
+	position: fixed;
+	top: 0;
+	left: 0;
+
+	.gray {
+		width: 100%;
+		height: 100%;
+		background: rgba(0, 0, 0, 0.3);
+		filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#4C000000, endColorstr=#4C000000);
+	}
+
+	.popup {
+		position: absolute;
+		left: 50%;
+		top: 50%;
+		transform: translate(-50%, -50%);
+		background-color: #fff;
+	}
+
+	.popup-title {
+		padding: 0 10px;
+		height: 30px;
+		line-height: 30px;
+		background-color: #f3f3f3;
+		color: #000;
+
+		.title {
+			float: left;
+			font-weight: bold;
+		}
+
+		.delete {
+			float: right;
+
+			i {
+				display: block;
+				width: 30px;
+				height: 30px;
+				background: url('http://localhost:8080/static/img/qxicon.png') no-repeat -181px -755px;
+				cursor: pointer;
+			}
+
+		}
+
+	}
+
+	.popup-content {
+		width: 900px;
+		overflow-y: auto;
+		max-height: 500px;
+		margin: 10px 10px 0 15px;
+		background-color: #fff;
+
+		p {
+			line-height: 30px;
+		}
+
+	}
+
+	.popup-button {
+		text-align: center;
+		padding: 20px 0;
+
+		button {
+			border: none;
+			outline: none;
+			width: 200px;
+			height: 50px;
+			line-height: 50px;
+			font-size: 16px;
+			border-radius: 2px;
+			cursor: pointer;
+		}
+
+		.cancel {
+			color: #999;
+			background-color: #e3e4e5;
+			margin-right: 20px;
+		}
+
+		.sure {
+			color: #fff;
+			background-color: #ec5a47;
+		}
+
+	}
+
 }
-
-.popup {
-position: absolute;
-background-color: #fff;
-}
-
-.popup-title {
-padding: 0 10px;
-height: 30px;
-line-height: 30px;
-background-color: #f3f3f3;
-color: #000;
-
-.title {
-float: left;
-font-weight: bold;
-}
-
-.delete {
-float: right;
-
-i {
-display: block;
-width: 30px;
-height: 30px;
-background: url('http://localhost:8080/static/img/qxicon.png') no-repeat -181px -755px;
-cursor: pointer;
-}
-
-}
-
-}
-
-.popup-content {
-width: 900px;
-overflow-y: auto;
-max-height: 500px;
-margin: 10px 10px 0 15px;
-background-color: #fff;
-
-p {
-line-height: 30px;
-}
-
-}
-
-.popup-button {
-text-align: center;
-padding: 20px 0;
-
-button {
-border: none;
-outline: none;
-width: 200px;
-height: 50px;
-line-height: 50px;
-font-size: 16px;
-border-radius: 2px;
-cursor: pointer;
-}
-
-.cancel {
-color: #999;
-background-color: #e3e4e5;
-margin-right: 20px;
-}
-
-.sure {
-color: #fff;
-background-color: #ec5a47;
-}
-
-}
-
-}
- */

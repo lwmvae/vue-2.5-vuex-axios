@@ -4,6 +4,7 @@
   background-color: #5f9bfd;
 }
 .content-wrapper {
+  position: relative;
   width: 1200px;
   height: 590px;
   margin: 0 auto;
@@ -15,10 +16,11 @@
   margin-left: 75px;
 }
 .login {
-  float: right;
-  margin-right: 75px;
+  position: absolute;
+  top: 50%;
+  right: 75px;
+  transform: translateY(-50%);
   width: 410px;
-  margin-top: 86px;
   padding: 40px 30px;
   box-sizing: border-box;
   background-color: #fff;

@@ -8,7 +8,7 @@
     <div class="course">
       <h5 v-show="noCourse">暂无该课程</h5>
       <ul class="clearFix" v-show="showCourse">
-        <li v-for="item in items">
+        <li v-for="item in items" @click="goToDetail">
           <div class="img">
             <img :src="item.avatar">
           </div>
@@ -21,7 +21,7 @@
             </div>
             <div class="purchase">
               <!-- 未购买的课程 -->
-              <a v-show="item.myCourse" class="btn" @click="goToLearn">开始学习</a>
+              <a v-show="item.myCourse" class="btn">开始学习</a>
               <a v-show="!item.myCourse">{{item.purchase}}人购买</a>
             </div>
           </div>
@@ -57,7 +57,7 @@ export default {
     }
   },
   methods: {
-    goToLearn: function() {
+    goToDetail: function() {
       this.$router.push('/courseCenter/courseDetail');
     },
     changeCourse: function(index) {

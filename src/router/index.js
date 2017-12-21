@@ -54,7 +54,7 @@ export default new Router({
       component: login
     },
     {
-      path: '/paper',
+      path: '/mineExam/paper',
       component: paper
     },
     {

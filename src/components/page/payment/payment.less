@@ -2,12 +2,14 @@
 
 .content {
 	width: 1200px;
-	margin: 0 auto;
+	margin: 20px auto 0;
 	background-color: #fff;
-	.border;
+	padding-bottom: 20px;
 }
 
 .payment {
+	.border;
+
 	.info {
 		height: 70px;
 		line-height: 70px;
@@ -121,21 +123,24 @@
 
 }
 
-/* #add-popup {
-	display: none;
+#add-popup {
+	width: 100%;
+	height: 100%;
+	position: fixed;
+	top: 0;
+	left: 0;
 
 	.gray {
 		width: 100%;
 		height: 100%;
 		background: rgba(0, 0, 0, 0.3);
-		filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#4C000000, endColorstr=#4C000000);
-		position: fixed;
-		top: 0;
-		left: 0;
 	}
 
 	.popup {
 		position: absolute;
+		left: 50%;
+		top: 50%;
+		transform: translate(-50%, -50%);
 		background-color: #fff;
 	}
 
@@ -158,13 +163,13 @@
 				display: block;
 				width: 30px;
 				height: 30px;
-				background: url('../img/qxicon.png') no-repeat -520px -385px;
+				background: url('http://localhost:8080/static/img/qxicon.png') no-repeat -520px -385px;
 				cursor: pointer;
 			}
 
 			&:hover {
 				i {
-					background: url('../img/qxicon.png') no-repeat -520px -512px;
+					background: url('http://localhost:8080/static/img/qxicon.png') no-repeat -520px -512px;
 				}
 
 			}
@@ -224,4 +229,4 @@
 
 	}
 
-} */
+}

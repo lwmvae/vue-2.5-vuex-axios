@@ -1,5 +1,8 @@
 <template>
   <div class="container">
+    <div class="loading" v-show="showPaper">
+      <p><span>试卷加载中，请稍等</span><img src="http://localhost:8080/static/img/loading.gif" alt="加载中"></p>
+    </div>
     <v-head :title="title"></v-head>
     <div class="content">
       <div class="exam">
@@ -29,10 +32,10 @@
           <div class="aside-wrapper">
             <div class="person clearFix">
               <div class="p-img">
-                <img src="http://localhost:8080/static/img/qx.png">
+                <img :src="info.userAvatar">
               </div>
               <div class="p-info">
-                <p>姓名：张三</p>
+                <p>姓名：{{info.userName}}</p>
               </div>
             </div>
             <div class="aside-down">
@@ -48,11 +51,11 @@
               <div class="subject-type">
                 <ul>
                   <p>一、单选题</p>
-                  <li v-for="index in single.length">{{num+index-1}}</li>
+                  <li v-for="index in single.length">{{index}}</li>
                   <p>二、多选题</p>
-                  <li v-for="index in double.length">{{index}}</li>
+                  <li v-for="index in double.length">{{single.length+index}}</li>
                   <p>三、判断题</p>
-                  <li v-for="index in judge.length">{{index}}</li>
+                  <li v-for="index in judge.length">{{single.length+double.length+index}}</li>
                 </ul>
               </div>
             </div>
@@ -69,29 +72,7 @@
                 (共{{single.length}}题,共计{{sum(single)}}分)
               </div>
             </div>
-            <ul>
-              <li v-for="(item,index) in single">
-                <div class="subject clearFix">
-                  <p><i>{{5}}</i><span>(分数：{{item.fraction}})</span>{{item.content}}</p>
-                  <a href="javascript:;" class="doubtful">存疑</a>
-                </div>
-                <div class="source">
-                  <div class="source-detail">
-                    <div class="close"></div>
-                  </div>
-                  <div class="source-wrapper">
-                    <img class="img" v-for="img in item.sourse" :src="img">
-                  </div>
-                </div>
-                <!-- 单选题/判断题添加类名为 option-single -->
-                <!-- 多选题添加类名为 option-double -->
-                <div class="option option-single">
-                  <ul>
-                    <li v-for="opt in item.option"><span>A</span>{{opt}}</li>
-                  </ul>
-                </div>
-              </li>
-            </ul>
+            <subject :subjectList="single"></subject>
           </div>
           <!-- 多选题 -->
           <div class="double">
@@ -103,27 +84,7 @@
                 (共{{double.length}}题,共计{{sum(double)}}分)
               </div>
             </div>
-            <ul>
-              <li v-for="(item,index) in double">
-                <div class="subject clearFix">
-                  <p><i>{{index}}</i><span>(分数：{{item.fraction}})</span>{{item.content}}</p>
-                  <a href="javascript:;" class="doubtful">存疑</a>
-                </div>
-                <div class="source">
-                  <div class="source-detail">
-                    <div class="close"></div>
-                  </div>
-                  <div class="source-wrapper">
-                    <img class="img" v-for="img in item.sourse" :src="img">
-                  </div>
-                </div>
-                <div class="option option-double">
-                  <ul>
-                    <li v-for="opt in item.option"><span>A</span>{{opt}}</li>
-                  </ul>
-                </div>
-              </li>
-            </ul>
+            <subject :subjectList="double"></subject>
           </div>
           <!-- 判断题 -->
           <div class="judge">
@@ -135,27 +96,7 @@
                 (共{{judge.length}}题,共计{{sum(judge)}}分)
               </div>
             </div>
-            <ul>
-              <li v-for="(item,index) in judge">
-                <div class="subject clearFix">
-                  <p><i>{{index}}</i><span>(分数：{{item.fraction}})</span>{{item.content}}</p>
-                  <a href="javascript:;" class="doubtful">存疑</a>
-                </div>
-                <div class="source">
-                  <div class="source-detail">
-                    <div class="close"></div>
-                  </div>
-                  <div class="source-wrapper">
-                    <img class="img" v-for="img in item.sourse" :src="img">
-                  </div>
-                </div>
-                <div class="option option-single">
-                  <ul>
-                    <li v-for="opt in item.option"><span></span>{{opt}}</li>
-                  </ul>
-                </div>
-              </li>
-            </ul>
+            <subject :subjectList="judge"></subject>
           </div>
         </div>
       </div>
@@ -166,27 +107,28 @@
 <script>
 import vHead from '../../common/head.vue'
 import vFoot from '../../common/foot.vue'
+import subject from '../subject/subject.vue'
 export default {
   data() {
     return {
       title: '考试',
-      score:[],
-      num:1,
+      score: [],
       info: [],
       single: [],
       double: [],
-      judge: []
+      judge: [],
+      showPaper: true
     }
   },
-  methods:{
-    sum:function(arr){
-      var sum=0;
-      for(let i=0,len=arr.length;i<len;i++){
-        sum+=arr[i].fraction;
+  methods: {
+    sum: function(arr) {
+      var sum = 0;
+      for (let i = 0, len = arr.length; i < len; i++) {
+        sum += arr[i].fraction;
       }
       return sum;
     },
-    assignment:function () {
+    assignment: function() {
       this.$router.push('/paper/examResult');
     }
   },
@@ -197,13 +139,16 @@ export default {
       this.single = data.single;
       this.double = data.double;
       this.judge = data.judge;
-      this.score=this.sum(this.single)+this.sum(this.double)+this.sum(this.judge);
-      // console.log(this.sum(this.single));
+      this.score = this.sum(this.single) + this.sum(this.double) + this.sum(this.judge);
     }, (error) => { console.log('失败') })
+  },
+  mounted() {
+    this.showPaper = false;
   },
   components: {
     vHead,
-    vFoot
+    vFoot,
+    subject
   }
 }
 

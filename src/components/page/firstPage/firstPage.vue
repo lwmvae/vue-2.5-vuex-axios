@@ -44,8 +44,8 @@
             </tr>
           </table>
         </div>
-        <div class="table-content">
-          <table>
+        <div class="table-content" id="demo">
+          <table id="demo1">
             <tr v-for="list in getCertificate">
               <td width="100px">{{list.name}}</td>
               <td width="450px">{{list.courseName}}</td>
@@ -53,6 +53,7 @@
               <td width="150px">{{list.date}}</td>
             </tr>
           </table>
+          <table id="demo2"></table>
         </div>
         <div class="table-foot"></div>
       </div>
@@ -63,12 +64,12 @@
 export default {
   data() {
     return {
-      hotCourse:[],
-      getCertificate:[],
+      hotCourse: [],
+      getCertificate: [],
     }
   },
-  methods:{
-    goToDetail:function(id){
+  methods: {
+    goToDetail: function(id) {
       console.log(id);
       this.$router.push('/courseCenter/courseDetail');
     }
@@ -76,9 +77,29 @@ export default {
   created() {
     this.$http.get('http://localhost:8080/static/json/firstPage.json').then((response) => {
       var data = response.data;
-      this.hotCourse=data.hotCourse;
-      this.getCertificate=data.getCertificate;
+      this.hotCourse = data.hotCourse;
+      this.getCertificate = data.getCertificate;
     }, (error) => { console.log('失败') })
+  },
+  mounted() {
+    function $(ele){
+      return document.getElementById(ele);
+    }
+    var demo=$("demo"),demo1=$("demo1"), demo2=$("demo2");
+    var speed = 50;
+    console.log(demo1.innerHTML);
+    demo2.innerHTML = demo1.innerHTML;
+
+    function Marquee() {
+      if (demo2.offsetTop - demo.scrollTop <= 0) {
+        demo.scrollTop -= demo1.offsetHeight
+      } else {
+        demo.scrollTop++
+      }
+    }
+    var MyMar = setInterval(Marquee, speed);
+    demo.onmouseover = function() { clearInterval(MyMar) };
+    demo.onmouseout = function() { MyMar = setInterval(Marquee, speed) };
   }
 }
 

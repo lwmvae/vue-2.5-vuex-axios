@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <v-head :title="title"></v-head>
-    <div class="content">
+    <div class="content" ref="content">
       <div class="content-wrapper clearFix">
         <div class="img">
           <img src="http://localhost:8080/static/img/train.png">
@@ -97,6 +97,11 @@ export default {
     goLogin:function(){
 
     }
+  },
+  mounted: function() {
+    this.$nextTick(function() {
+      this.$refs.content.style.minHeight = document.documentElement.clientHeight - 140 + 'px';
+    })
   },
   components: {
     vHead,

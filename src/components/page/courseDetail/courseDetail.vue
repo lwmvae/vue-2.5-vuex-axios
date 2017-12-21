@@ -102,6 +102,9 @@ export default {
     this.$http.get('http://localhost:8080/static/json/courseDetail.json').then((response) => {
       var data = response.data;
       this.detail = data;
+      if(!this.detail.myCourse){
+        this.navList=['介绍'];
+      }
     }, (error) => { console.log('失败') })
   }
 }

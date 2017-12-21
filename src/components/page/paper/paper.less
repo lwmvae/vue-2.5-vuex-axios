@@ -1,5 +1,31 @@
 @import url('../../../assets/css/common.less');
 
+.loading {
+	width: 100%;
+	height: 100%;
+	position: fixed;
+	top: 0;
+	left: 0;
+	background-color: #f6f6f6;
+	z-index: 200;
+
+	p {
+		font-size: 30px;
+		margin: 50px 0;
+		text-align: center;
+
+		img {
+			width: 32px;
+			height: 32px;
+			position: relative;
+			top: 4px;
+			left: 5px;
+		}
+
+	}
+
+}
+
 .content {
 	padding-bottom: 20px;
 	width: @width;
@@ -249,149 +275,6 @@
 			height: 50px;
 			line-height: 50px;
 			color: #888;
-		}
-
-	}
-
-	.subject {
-		position: relative;
-		padding: 10px 10px 10px 30px;
-		border-bottom: 1px solid #dfdfdf;
-
-		p {
-			line-height: 25px;
-			padding-bottom: 10px;
-		}
-
-		i {
-			position: absolute;
-			top: 10px;
-			left: 3px;
-			display: block;
-			width: 25px;
-			height: 25px;
-			line-height: 25px;
-			text-align: center;
-			color: #fff;
-			background-color: @bgColor;
-			.border-radius(50%);
-		}
-
-		span {
-			color: #888;
-			margin-right: 5px;
-		}
-
-		a {
-			position: absolute;
-			right: 10px;
-			bottom: 0;
-			padding-left: 20px;
-			color: #ff3408;
-			background: url(http://localhost:8080/static/img/qxicon.png) no-repeat -342px -867px;
-		}
-
-		a.active {
-			background: url(http://localhost:8080/static/img/qxicon.png) no-repeat -342px -756px;
-		}
-
-	}
-
-	.source {
-		padding: 0 20px 0 30px;
-
-		.source-detail {
-			position: relative;
-			margin-top: 10px;
-			text-align: center;
-
-			.close {
-				display: none;
-				position: absolute;
-				right: 0;
-				top: 0;
-				width: 40px;
-				height: 40px;
-				background: url(http://localhost:8080/static/img/qxicon.png) no-repeat -514px -266px;
-				cursor: pointer;
-			}
-
-			img {
-				max-width: 100%;
-				cursor: url('http://localhost:8080/static/img/narrow.ico'), auto;
-			}
-
-		}
-
-		.source-wrapper {
-			margin-top: 10px;
-
-			img {
-				width: 52px;
-				height: 52px;
-				margin-right: 10px;
-				overflow: hidden;
-				cursor: pointer;
-			}
-
-			.img {
-				cursor: url('http://localhost:8080/static/img/magnifier.ico'), auto;
-			}
-
-		}
-
-	}
-
-	.option {
-		padding: 0 20px 10px 30px;
-
-		li {
-			margin-top: 20px;
-			cursor: pointer;
-
-			span {
-				padding-left: 23px;
-				margin-right: 5px;
-			}
-
-		}
-
-		/* p {
-			margin-top: 20px;
-			color: #999;
-		} */
-	}
-
-	.option-single {
-		li {
-			span {
-				background: url(http://localhost:8080/static/img/qxicon.png) no-repeat -341px -638px;
-			}
-
-		}
-
-		li.active {
-			span {
-				background: url(http://localhost:8080/static/img/qxicon.png) no-repeat -341px -515px;
-			}
-
-		}
-
-	}
-
-	.option-double {
-		li {
-			span {
-				background: url(http://localhost:8080/static/img/qxicon.png) no-repeat -527px -154px;
-			}
-
-		}
-
-		li.active {
-			span {
-				background: url(http://localhost:8080/static/img/qxicon.png) no-repeat -527px -24px;
-			}
-
 		}
 
 	}

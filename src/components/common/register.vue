@@ -86,6 +86,30 @@
         <router-link to="/login">立即登录</router-link>
       </div>
     </div>
+    <div id="add-popup" v-show="agreement">
+      <div id="gray" class="gray"></div>
+      <div class="popup" id="popup">
+        <div class="popup-title clearFix">
+          <div class="title">
+            <p>用户注册协议</p>
+          </div>
+          <div class="delete" @click="closeAgm">
+            <i></i>
+          </div>
+        </div>
+        <div class="popup-content">
+          <p>一、遵守中华人民共和国法律法令和其他相关法规，不可发布破坏宪法和法律、法规的信息。</p>
+          <p>二、遵守公安部关于《计算机信息网络国际联网安全保护管理办法》的规定，自觉维护计算机信息网络的安全。</p>
+          <p>三、不得在网上宣扬封建迷信、淫秽、色情、暴力、赌博等不正当行为。</p>
+          <p>四、用户注册成功后，请到个人中心完善个人信息，请如实填写单位名称、通讯地址等信息，方便购买课程、参加考试、邮寄证书时使用。</p>
+          <p>五、用户注册信息中包含身份证号、手机号码等信息，请妥善保管您的用户名和密码，防止泄露个人身份信息，本网站不会将个人信息泄露给第三方。</p>
+        </div>
+        <div class="popup-button">
+          <button class="cancel" @click="closeAgm">取消</button>
+          <button class="sure" @click="agree">同意并继续</button>
+        </div>
+      </div>
+    </div>
     <v-foot></v-foot>
   </div>
 </template>
@@ -99,10 +123,17 @@ export default {
       info: {},
       psw: false,
       phoneNum: false,
-      idcardNum: false
+      idcardNum: false,
+      agreement:true
     }
   },
   methods: {
+    closeAgm:function(){
+      this.$router.push('/');
+    },
+    agree:function(){
+      this.agreement=false;
+    },
     pswValidate: function() {
       if (this.info.password != this.info.repassword) {
         this.psw = true
@@ -130,7 +161,7 @@ export default {
       if (this.info.repassword != undefined) {
         if (this.info.idcard != undefined) {
           if (this.info.phone != undefined) {
-            window.localStorage.setItem("username",this.info.username);
+            window.localStorage.setItem("username", this.info.username);
             this.$router.push('/');
           } else {
             this.phoneNum = true;

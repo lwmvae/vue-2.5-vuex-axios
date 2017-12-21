@@ -357,7 +357,6 @@ export default {
   top: 0;
   z-index: 10;
   background-color: rgba(0, 0, 0, 0.3);
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#4C000000, 0, endColorstr=#4C000000, 0);
 }
 
 .showbigimg img {

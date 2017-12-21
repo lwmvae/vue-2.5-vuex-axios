@@ -50,7 +50,7 @@ export default {
   },
   methods:{
     goToTest:function () {
-      this.$router.push('/paper');
+      this.$router.push('/mineExam/paper');
     }
   },
   created(){
