@@ -1,5 +1,5 @@
 <template>
-  <div class="content">
+  <div class="content" v-title data-title="继续教育">
     <div class="education">
       <ul class="clearFix">
         <li><a href="http://www.baidu.com" target="_blank"><img src="http://localhost:8080/static/img/labgasuser.png"><p>实验室瓶装气体使用人员继续教育</p></a></li>
@@ -12,14 +12,16 @@
 </template>
 <script>
 export default {
-
+  
 }
+
 </script>
 <style scoped>
-.content{
-  width:1200px;
+.content {
+  width: 1200px;
   margin: 0 auto;
 }
+
 .education ul {
   overflow: auto;
   margin-left: -34px;

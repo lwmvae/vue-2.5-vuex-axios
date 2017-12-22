@@ -50,17 +50,17 @@ export default {
     return {
       lists: ["http://localhost:8080/static/img/zfb.png", "http://localhost:8080/static/img/wx.png"],
       num: 0,
-      payOrNot:false
+      payOrNot: false
     }
   },
   methods: {
-    goToPay:function(){
-      this.payOrNot=true
+    goToPay: function() {
+      this.payOrNot = true
     },
-    close:function(){
-      this.payOrNot=false
+    close: function() {
+      this.payOrNot = false
     },
-    hasPay:function(){
+    hasPay: function() {
       this.$router.push('/courseCenter/courseDetail');
     },
     choiceType: function(index) {

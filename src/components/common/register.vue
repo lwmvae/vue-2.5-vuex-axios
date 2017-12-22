@@ -124,15 +124,15 @@ export default {
       psw: false,
       phoneNum: false,
       idcardNum: false,
-      agreement:true
+      agreement: true
     }
   },
   methods: {
-    closeAgm:function(){
+    closeAgm: function() {
       this.$router.push('/');
     },
-    agree:function(){
-      this.agreement=false;
+    agree: function() {
+      this.agreement = false;
     },
     pswValidate: function() {
       if (this.info.password != this.info.repassword) {
@@ -173,6 +173,9 @@ export default {
         this.psw = true;
       }
     }
+  },
+  created() {
+    document.title = '新用户注册'
   },
   components: {
     vHead,

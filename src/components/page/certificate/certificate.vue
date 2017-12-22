@@ -1,5 +1,5 @@
 <template>
-  <div class="content">
+  <div class="content" v-title data-title="证书查询">
     <div class="query">
       <div class="title">
         <h1><span>证书</span>查询</h1>
@@ -104,7 +104,7 @@ export default {
       items: [],
       noresult: false,
       table: false,
-      bigimg:false
+      bigimg: false
     }
   },
   watch: {
@@ -158,12 +158,12 @@ export default {
         }, (error) => { console.log('失败') })
       }
     },
-    showbigimg:function(item){
-      this.bigimg=true;
-      this.$refs.img.src=item;
+    showbigimg: function(item) {
+      this.bigimg = true;
+      this.$refs.img.src = item;
     },
-    hidebigimg:function(){
-      this.bigimg=false;
+    hidebigimg: function() {
+      this.bigimg = false;
     }
   }
 }
@@ -171,8 +171,8 @@ export default {
 </script>
 <style scoped>
 .content {
-	width: 1200px;
-	margin: 0 auto;
+  width: 1200px;
+  margin: 0 auto;
   padding-bottom: 20px;
 }
 

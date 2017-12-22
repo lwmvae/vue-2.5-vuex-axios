@@ -12,44 +12,44 @@
   {
     "type": "single",
     "fraction": 2,
-    "content": "在微信中发两位这个BUG的原理是怎样的？",
+    "content": "在1.0l×105Pa时，升高温度，液态空气依次先后分离出来的顺序是()",
     "sourse": ["http://localhost:8080/static/img/demo.jpg", "http://localhost:8080/static/img/test.jpg"],
-    "option": ["变大", "变小", "先变大再变小", "不变"]
+    "option": ["氮气、氩气、氧气", "氧气、氩气、氮气", "氮气、氧气、氩气", "氧气、氮气、氩气"]
   },
   {
     "type": "single",
     "fraction": 2,
-    "content": "这个BUG的原理是怎样的？在微信中发两位",
+    "content": "氩气的瓶体颜色为()",
     "sourse": [],
-    "option": ["变小", "先变大再变小", "变大", "不变"]
+    "option": ["灰色", "绿色", "红色", "棕色"]
   }],
   "double": [
   {
     "type": "double",
     "fraction": 5,
-    "content": "在微信中发两位这个BUG的原理是怎样的？",
+    "content": "下列气体中属于惰性气体性质的气体有()",
     "sourse": ["http://localhost:8080/static/img/demo.jpg"],
-    "option": ["变大", "变小", "先变大再变小", "先变小再变大", "不变"]
+    "option": ["氮气", "氩气", "氧气", "甲烷", "二氧化碳"]
   },
   {
     "type": "double",
     "fraction": 5,
-    "content": "这个BUG的原理是怎样的？在微信中发两位",
+    "content": "空气中含氩气的比例是()%",
     "sourse": [],
-    "option": ["变小", "先变大再变小", "变大", "不变"]
+    "option": ["0.93", "5", "0.5", "93"]
   }],
   "judge": [
   {
     "type": "judge",
     "fraction": 3,
-    "content": "在微信中发两位这个BUG的原理是怎样的？",
+    "content": "氮气属于永久气体？",
     "sourse": [],
     "option": ["正确", "错误"]
   },
   {
     "type": "judge",
     "fraction": 3,
-    "content": "这个BUG的原理是怎样的？在微信中发两位",
+    "content": "盛装氮气应使用无缝气瓶？",
     "sourse": ["http://localhost:8080/static/img/demo.jpg"],
     "option": ["正确", "错误"]
   }]

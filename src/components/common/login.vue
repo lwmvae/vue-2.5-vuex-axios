@@ -145,6 +145,9 @@ export default {
       this.$refs.content.style.minHeight = document.documentElement.clientHeight - 140 + 'px';
     });
   },
+  created(){
+    document.title = '登录'
+  },
   components: {
     vHead,
     vFoot
