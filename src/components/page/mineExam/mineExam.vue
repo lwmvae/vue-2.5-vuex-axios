@@ -1,5 +1,5 @@
 <template>
-  <div class="content">
+  <div class="content" v-title data-title="我的考试">
     <div class="mine-exam">
       <h5 v-show="noExam">暂无任何考试</h5>
       <ul class="clearFix" v-show="showExam">

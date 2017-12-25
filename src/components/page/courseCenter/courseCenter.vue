@@ -1,5 +1,5 @@
 <template>
-  <div class="content">
+  <div class="content" v-title data-title="课程中心">
     <div class="nav-course">
       <ul class="clearFix">
         <li v-for="(nav,index) in navItems" :class="{active:index==num}" @click="changeCourse(index)"><a href="javascript:;">{{nav}}</a></li>

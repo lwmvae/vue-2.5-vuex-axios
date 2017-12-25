@@ -1,5 +1,5 @@
 <template>
-  <div class="content clearFix">
+  <div class="content clearFix" v-title data-title="用户中心">
     <div class="data-certificate">
       <div class="data">
         <div class="photo">

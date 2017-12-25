@@ -1,11 +1,11 @@
 <template>
-  <div class="container">
+  <div class="container" v-title data-title="考试">
     <div class="loading" v-show="showPaper">
       <p><span>试卷加载中，请稍等</span><img src="http://localhost:8080/static/img/loading.gif" alt="加载中"></p>
     </div>
     <v-head :title="title"></v-head>
     <div class="content">
-      <div class="exam">
+      <div class="exam" ref="exam" :class="{fixed:isfixed}" >
         <div class="exam-wrapper clearFix">
           <div class="name">
             <p>{{info.courseName}}</p>
@@ -28,7 +28,7 @@
         <h1>{{info.paperName}}</h1>
       </div>
       <div class="con">
-        <div class="aside">
+        <div class="aside" :class="{'aside-fixed':isfixed}">
           <div class="aside-wrapper">
             <div class="person clearFix">
               <div class="p-img">
@@ -49,13 +49,13 @@
                 <p class="p3"><span></span>存疑</p>
               </div>
               <div class="subject-type">
-                <ul>
+                <ul @click="getNav">
                   <p>一、单选题</p>
                   <li v-for="index in single.length">{{index}}</li>
                   <p>二、多选题</p>
-                  <li v-for="index in double.length">{{single.length+index}}</li>
+                  <li v-for="index in double.length">{{index}}</li>
                   <p>三、判断题</p>
-                  <li v-for="index in judge.length">{{single.length+double.length+index}}</li>
+                  <li v-for="index in judge.length">{{index}}</li>
                 </ul>
               </div>
             </div>
@@ -108,6 +108,7 @@
 import vHead from '../../common/head.vue'
 import vFoot from '../../common/foot.vue'
 import subject from '../subject/subject.vue'
+// import subjectCheckbox from '../subjectCheckbox/subjectCheckbox.vue'
 var time = 0;
 export default {
   data() {
@@ -119,10 +120,31 @@ export default {
       double: [],
       judge: [],
       showPaper: true,
-      count: "00:00:00"
+      count: "00:00:00",
+      isfixed: false,
+      subjectTop:[]
     }
   },
   methods: {
+    // 点击左边导航，滚动到相应的题目
+    getNav:function(e){
+      this.sumSubjectTop();
+        // console.log(this.subjectTop);
+      var num=parseInt(e.target.innerHTML);
+      if(num>0){
+        document.documentElement.scrollTop=this.subjectTop[num-1]-130;
+      }
+      // console.log(typeof e.target.innerHTML);
+      // console.log(this.subjectTop.length);
+    },
+    // 储存每道题距离顶部的高度
+    sumSubjectTop:function(){
+      var getSubject=document.getElementsByClassName('subject');
+      for(var i=0;i<getSubject.length;i++){
+        this.subjectTop[i]=getSubject[i].offsetTop
+      }
+      // return this.subjectTop;
+    },
     sum: function(arr) {
       var sum = 0;
       for (let i = 0, len = arr.length; i < len; i++) {
@@ -155,6 +177,17 @@ export default {
     },
     callback: function() {
       // this.$router.push('/');
+    },
+    titleFixed: function() {
+      var examTop = this.$refs.exam.offsetTop;
+      window.addEventListener('scroll',()=>{
+        var scrollTop = document.documentElement.scrollTop;
+        if (scrollTop > examTop) {
+          this.isfixed = true;
+        } else {
+          this.isfixed = false;
+        }
+      },false)      
     }
   },
   created() {
@@ -166,7 +199,15 @@ export default {
       this.judge = data.judge;
       this.score = this.sum(this.single) + this.sum(this.double) + this.sum(this.judge);
       time = this.info.paperTime;
-    }, (error) => { console.log('失败') })
+    }, (error) => { console.log('失败') });
+
+    this.$nextTick(function(){
+
+      this.titleFixed();
+      // this.sumSubjectTop();
+      // console.log(this.isfixed);
+    });
+    
   },
   mounted() {
     var self = this;
@@ -179,6 +220,7 @@ export default {
         self.callback();
       }
     }, 1000);
+
   },
   components: {
     vHead,

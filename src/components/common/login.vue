@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="container" v-title data-title="登录">
     <v-head :title="title"></v-head>
     <div class="content" ref="content">
       <div class="content-wrapper clearFix">
@@ -144,9 +144,6 @@ export default {
     this.$nextTick(function() {
       this.$refs.content.style.minHeight = document.documentElement.clientHeight - 140 + 'px';
     });
-  },
-  created(){
-    document.title = '登录'
   },
   components: {
     vHead,

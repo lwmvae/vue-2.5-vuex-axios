@@ -1,5 +1,5 @@
 <template>
-  <div class="content">
+  <div class="content" v-title data-title="付款">
     <div class="payment">
       <div class="info clearFix">
         <div class="name">

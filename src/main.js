@@ -6,14 +6,13 @@ import router from './router'
 import axios from 'axios';
 Vue.prototype.$http = axios;
 
+import Vuex from 'vuex';
+
+Vue.use(Vuex);
 
 Vue.config.productionTip = false
 
-Vue.directive('title', {
-  inserted: function(el, binding) {
-    document.title = el.dataset.title
-  }
-});
+
 
 
 /* eslint-disable no-new */

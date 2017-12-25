@@ -1,5 +1,5 @@
 <template>
-  <div class="content">
+  <div class="content" v-title data-title="课程详情">
     <div class="detail-title clearFix">
       <div class="title-left">
         <img src="http://localhost:8080/static/img/qx.png">
@@ -95,7 +95,7 @@ export default {
       this.num=index;
     },
     goToTest:function () {
-      this.$router.push('/paper');
+      this.$router.push('/mineExam/paper');
     }
   },
   created() {

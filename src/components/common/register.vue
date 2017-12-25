@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="container" v-title data-title="注册">
     <v-head :title="title"></v-head>
     <div class="content">
       <div class="title">
@@ -173,9 +173,6 @@ export default {
         this.psw = true;
       }
     }
-  },
-  created() {
-    document.title = '新用户注册'
   },
   components: {
     vHead,

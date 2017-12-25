@@ -14,6 +14,13 @@ import examResult from '@/components/page/examResult/examResult'
 import courseDetail from '@/components/page/courseDetail/courseDetail'
 import payment from '@/components/page/payment/payment'
 
+Vue.directive('title', {
+  inserted: function(el, binding) {
+    document.title = el.dataset.title
+  }
+})
+
+
 Vue.use(Router)
 
 export default new Router({

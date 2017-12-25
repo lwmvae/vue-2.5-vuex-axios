@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="banner">
+    <div class="banner" v-title data-title="首页">
       <div class="banner-wrapper">
         <img src="http://localhost:8080/static/img/qxbanner.png">
       </div>
@@ -77,20 +77,10 @@ export default {
   },
   methods: {
     goToDetail: function(id) {
-      console.log(id);
+      // console.log(id);
       this.$router.push('/courseCenter/courseDetail');
-    }
-  },
-  created() {
-    this.$http.get('http://localhost:8080/static/json/firstPage.json').then((response) => {
-      var data = response.data;
-      this.hotCourse = data.hotCourse;
-      this.getCertificate = data.getCertificate;
-    }, (error) => { console.log('失败') });
-
-  },
-  mounted() {
-    this.$nextTick(function() {
+    },
+    scroll: function() {
       function $(ele) {
         return document.getElementById(ele);
       }
@@ -98,9 +88,10 @@ export default {
         demo1 = $("demo1"),
         demo2 = $("demo2");
       var speed = 50;
-      console.log(demo1.innerHTML);
-      // 待改进……
-      // demo2.innerHTML = demo1.innerHTML;
+      console.log(demo1);
+      // debugger;
+      // console.log(demo1.innerHTML);
+      demo2.innerHTML = demo1.innerHTML;
 
       function Marquee() {
         if (demo2.offsetTop - demo.scrollTop <= 0) {
@@ -112,8 +103,19 @@ export default {
       var MyMar = setInterval(Marquee, speed);
       demo.onmouseover = function() { clearInterval(MyMar) };
       demo.onmouseout = function() { MyMar = setInterval(Marquee, speed) };
+    }
+  },
+  created() {
+    this.$http.get('http://localhost:8080/static/json/firstPage.json').then((response) => {
+      var data = response.data;
+      this.hotCourse = data.hotCourse;
+      this.getCertificate = data.getCertificate;
+    }, (error) => { console.log('失败') });
+  },
+  mounted() {
+    this.$nextTick(function() {
+      this.scroll();
     })
-
   }
 }
 

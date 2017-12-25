@@ -10,7 +10,7 @@
   "certificateList": [
   {
     "ctfTitle": "科研机构实验室证书",
-    "ctfAvatar": "http://localhost:8080/static/img/qx.png"
+    "ctfAvatar": "http://localhost:8080/static/img/certificate.png"
   },
   {
     "ctfTitle": "实验室瓶装气体使用人员证书",
@@ -18,7 +18,7 @@
   },
   {
     "ctfTitle": "瓶装气体运输人员证书",
-    "ctfAvatar": "http://localhost:8080/static/img/qx.png"
+    "ctfAvatar": "http://localhost:8080/static/img/certificate.png"
   },
   {
     "ctfTitle": "气瓶充装企业人员证书",
@@ -26,7 +26,7 @@
   },
   {
     "ctfTitle": "瓶装气体经销企业人员证书",
-    "ctfAvatar": "http://localhost:8080/static/img/qx.png"
+    "ctfAvatar": "http://localhost:8080/static/img/certificate.png"
   }],
   "mineCourse": [
   {
