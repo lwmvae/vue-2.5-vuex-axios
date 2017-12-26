@@ -69,6 +69,8 @@
   </div>
 </template>
 <script>
+import { mapActions } from 'vuex'
+
 import vHead from './head.vue'
 import vFoot from './foot.vue'
 var countdown = 60;
@@ -126,19 +128,23 @@ export default {
       if (this.loginUserName) {
         if (this.info.username != undefined && this.info.password != undefined) {
           window.localStorage.setItem('username', this.info.username);
-          this.$router.push('/');
+          this.goToFirstpage();
         } else {
           alert('用户名和密码不能为空');
         }
       } else {
         if (this.info.phone != undefined) {
           window.localStorage.setItem('username', this.info.phone);
-          this.$router.push('/');
+          this.goToFirstpage();
         } else {
           alert('手机号不能为空');
         }
       }
-    }
+    },
+    ...mapActions(["goToFirstpage"])
+    // goToFirstpage:function(){
+    //   this.$router.push('/');
+    // }
   },
   mounted() {
     this.$nextTick(function() {

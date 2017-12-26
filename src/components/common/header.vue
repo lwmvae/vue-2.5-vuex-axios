@@ -8,7 +8,7 @@
               <img src="http://localhost:8080/static/img/qxlogo.png">
             </div>
             <div class="title">
-              <h1>中国气体行业从业人员在线培训平台</h1>
+              <h1>在线培训平台</h1>
             </div>
           </router-link>
         </div>
@@ -44,6 +44,8 @@
   </div>
 </template>
 <script>
+import { mapActions } from 'vuex'
+
 export default {
   data(){
     return{
@@ -55,12 +57,13 @@ export default {
       this.isLogin=!this.isLogin;
       window.localStorage.setItem("username","");
     },
-    setInfo: function() {
-      this.$router.push('/userCenter');
-    },
+    // setInfo: function() {
+    //   this.$router.push('/userCenter');
+    // },
     closeWarn: function() {
       this.$refs.warn.style.display = 'none';
-    }
+    },
+    ...mapActions(["setInfo"])
   },
   created(){
     var getUserName=window.localStorage.getItem("username");

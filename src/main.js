@@ -2,13 +2,18 @@
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import Vue from 'vue'
 import App from './App'
+
+import { sync } from 'vuex-router-sync'
+import store from './store'
+
 import router from './router'
+
 import axios from 'axios';
 Vue.prototype.$http = axios;
 
-import Vuex from 'vuex';
+const unsync = sync(store, router)
 
-Vue.use(Vuex);
+unsync()
 
 Vue.config.productionTip = false
 
@@ -17,8 +22,9 @@ Vue.config.productionTip = false
 
 /* eslint-disable no-new */
 const app = new Vue({
-  router: router,
+  store,
+  router,
   render: h => h(App)
 }).$mount('#app');
 
-// router.push('/courseCenter');
+// router.go('/courseCenter');

@@ -88,7 +88,7 @@ export default {
         demo1 = $("demo1"),
         demo2 = $("demo2");
       var speed = 50;
-      console.log(demo1);
+      // console.log(demo1);
       // debugger;
       // console.log(demo1.innerHTML);
       demo2.innerHTML = demo1.innerHTML;

@@ -6,7 +6,7 @@
           <img src="http://localhost:8080/static/img/qxlogo.png">
         </div>
         <div class="title">
-          <h1>中国气体行业从业人员在线培训平台</h1>
+          <h1>在线培训平台</h1>
         </div>
       </router-link>
       <div class="mode">
