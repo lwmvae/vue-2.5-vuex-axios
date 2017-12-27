@@ -1,8 +1,13 @@
-export const setInfo = state => {
-  state.count = 3;
-  state.route.path = '/userCenter';
+const mutations = {
+  setInfo(state) {
+    state.count = 3;
+  },
+  goToFirstpage(state) {
+    state.isLogin = true;
+  },
+  signOut(state) {
+    state.isLogin = false;
+  }
 }
-export const goToFirstpage = state => {
-  state.isLogin = true;
-  state.route.path = '/';
-}
+
+export default mutations;

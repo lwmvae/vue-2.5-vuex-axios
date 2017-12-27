@@ -44,7 +44,7 @@
   </div>
 </template>
 <script>
-import { mapActions } from 'vuex'
+import { mapMutations } from 'vuex'
 
 export default {
   data(){
@@ -56,6 +56,7 @@ export default {
     exitLogin:function(){
       this.isLogin=!this.isLogin;
       window.localStorage.setItem("username","");
+      this.signOut();
     },
     // setInfo: function() {
     //   this.$router.push('/userCenter');
@@ -63,11 +64,12 @@ export default {
     closeWarn: function() {
       this.$refs.warn.style.display = 'none';
     },
-    ...mapActions(["setInfo"])
+    ...mapMutations(["setInfo","goToFirstpage","signOut"])
   },
   created(){
     var getUserName=window.localStorage.getItem("username");
     if(getUserName){
+      this.goToFirstpage();
       this.isLogin=false;
     }
   }

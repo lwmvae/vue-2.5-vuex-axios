@@ -279,6 +279,7 @@
   </div>
 </template>
 <script>
+
 export default {
   data() {
     return {
@@ -290,6 +291,9 @@ export default {
       minePpaer:[],
       showbigimg:false
     }
+  },
+  computed:{
+    
   },
   methods: {
     changeHead:function () {
@@ -322,7 +326,8 @@ export default {
       this.certificateList = data.certificateList;
       this.mineCourse = data.mineCourse;
       this.minePpaer = data.minePpaer;
-    }, (error) => { console.log('失败') })
+    }, (error) => { console.log('失败') });
+
   }
 }
 

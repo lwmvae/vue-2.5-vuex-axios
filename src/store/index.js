@@ -2,18 +2,12 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 import * as getters from './getters'
 import * as actions from './actions'
-import * as mutations from './mutations'
+import mutations from './mutations'
+import state from './state'
 
 
 Vue.use(Vuex)	
 
-const state = {
-  count: 0,
-  isLogin:false,
-  route:{
-  	path:'/'
-  }
-}
 
 const store = new Vuex.Store({
   state,
