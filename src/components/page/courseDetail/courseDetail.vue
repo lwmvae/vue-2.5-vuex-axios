@@ -63,7 +63,7 @@
             </div>
             <div class="exam">
               <div class="title">
-                <p>考试</p>
+                <p>正式考试</p>
               </div>
               <div class="time-day">
                 <p class="day">剩余天数：<span>{{detail.examDeadLine}}</span>天</p>
@@ -79,31 +79,42 @@
   </div>
 </template>
 <script>
+import { mapGetters } from 'vuex'
 export default {
   data() {
     return {
       detail: [],
-      navList:['介绍','目录','考试'],
-      num:0
+      navList: ['介绍', '目录', '考试'],
+      num: 0
     }
   },
-  methods:{
-    goToBuy:function () {
-      this.$router.push('/courseCenter/courseDetail/payment');
+  methods: {
+    goToBuy: function() {
+      if (this.isLogin) {
+        this.$router.push('/courseCenter/courseDetail/payment');
+      } else {
+        this.$router.push('/login');
+      }
     },
-    navChange:function (index) {
-      this.num=index;
+    navChange: function(index) {
+      this.num = index;
     },
-    goToTest:function () {
+    goToTest: function() {
       this.$router.push('/mineExam/paper');
     }
+  },
+  computed: {
+    ...mapGetters(['isLogin'])
   },
   created() {
     this.$http.get('http://localhost:8080/static/json/courseDetail.json').then((response) => {
       var data = response.data;
       this.detail = data;
-      if(!this.detail.myCourse){
-        this.navList=['介绍'];
+      if (!this.isLogin) {
+        this.detail.myCourse = false;
+      }
+      if (!this.detail.myCourse) {
+        this.navList = ['介绍'];
       }
     }, (error) => { console.log('失败') })
   }

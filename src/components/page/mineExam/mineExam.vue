@@ -40,29 +40,38 @@
   </div>
 </template>
 <script>
+import { mapGetters } from 'vuex'
 export default {
-  data(){
-  	return{
-  		items:[],
-  		noExam:false,
-  		showExam:false
-  	}
+  data() {
+    return {
+      items: [],
+      noExam: false,
+      showExam: false
+    }
   },
-  methods:{
-    goToTest:function () {
+  methods: {
+    goToTest: function() {
       this.$router.push('/mineExam/paper');
     }
   },
-  created(){
-  	this.$http.get('http://localhost:8080/static/json/mineExam.json').then((response) => {
-          var data = response.data;
-          if (data.length) {
-            this.showExam = true;
-            this.items = data;
-          } else {
-            this.noExam = true;
-          }
-        }, (error) => { console.log('失败') })
+  computed: {
+    ...mapGetters(['isLogin'])
+  },
+  created() {
+    // console.log(this.isLogin);
+    if (this.isLogin) {
+      this.$http.get('http://localhost:8080/static/json/mineExam.json').then((response) => {
+        var data = response.data;
+        if (data.length) {
+          this.showExam = true;
+          this.items = data;
+        } else {
+          this.noExam = true;
+        }
+      }, (error) => { console.log('失败') })
+    }else{
+      this.$router.push('/login');
+    }
   }
 }
 

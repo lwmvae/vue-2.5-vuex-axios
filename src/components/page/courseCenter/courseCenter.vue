@@ -45,6 +45,7 @@
   </div>
 </template>
 <script>
+import { mapGetters } from 'vuex'
 var data;
 export default {
   data() {
@@ -78,16 +79,26 @@ export default {
       return arr;
     }
   },
+  computed: {
+    ...mapGetters(['isLogin'])
+  },
   created() {
     this.$http.get('http://localhost:8080/static/json/course.json').then((response) => {
       data = response.data;
       if (data.length) {
         this.showCourse = true;
         this.items = data;
+        //未登录
+        if (!this.isLogin) {
+          for (let i in this.items) {
+            this.items[i].myCourse = false;
+          }
+        }
       } else {
         this.noCourse = true;
       }
-    }, (error) => { console.log('失败') })
+    }, (error) => { console.log('失败') });
+
   }
 }
 

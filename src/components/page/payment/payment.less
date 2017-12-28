@@ -124,24 +124,13 @@
 }
 
 #add-popup {
-	width: 100%;
-	height: 100%;
-	position: fixed;
-	top: 0;
-	left: 0;
-
 	.gray {
 		width: 100%;
 		height: 100%;
 		background: rgba(0, 0, 0, 0.3);
-	}
-
-	.popup {
-		position: absolute;
-		left: 50%;
-		top: 50%;
-		transform: translate(-50%, -50%);
-		background-color: #fff;
+		position: fixed;
+		top: 0;
+		left: 0;
 	}
 
 	.popup-title {
@@ -150,11 +139,6 @@
 		line-height: 30px;
 		background-color: #f3f3f3;
 		color: #000;
-
-		.title {
-			float: left;
-			font-weight: bold;
-		}
 
 		.delete {
 			float: right;
@@ -178,51 +162,131 @@
 
 	}
 
-	.popup-content {
-		overflow-y: auto;
-		max-height: 500px;
-		margin: 50px 100px 0 100px;
+	#popup {
+		position: absolute;
+		left: 50%;
+		top: 50%;
+		transform: translate(-50%, -50%);
 		background-color: #fff;
+	}
 
-		p {
-			line-height: 25px;
+	.zfb-popup {
+		.popup-content {
+			overflow-y: auto;
+			max-height: 500px;
+			margin: 50px 100px 0 100px;
+			background-color: #fff;
+
+			p {
+				line-height: 25px;
+			}
+
+			.p1 {
+				font-size: 18px;
+			}
+
+			.p2 {
+				color: #ff0000;
+				margin-top: 10px;
+			}
+
 		}
 
-		.p1 {
-			font-size: 18px;
-		}
+		.popup-button {
+			padding: 30px 100px;
 
-		.p2 {
-			color: #ff0000;
-			margin-top: 10px;
+			button {
+				border: none;
+				outline: none;
+				width: 106px;
+				height: 36px;
+				line-height: 36px;
+				border-radius: 2px;
+				cursor: pointer;
+			}
+
+			.sure {
+				color: #fff;
+				background-color: @bgColor;
+				margin-right: 20px;
+			}
+
+			.cancel {
+				color: #999;
+
+				&:hover {
+					text-decoration: underline;
+				}
+
+			}
+
 		}
 
 	}
 
-	.popup-button {
-		padding: 30px 100px;
+	.wx-popup {
+		.popup-content {
+			.c-left {
+				float: left;
+				padding: 0 40px;
+				text-align: center;
+			}
 
-		button {
-			border: none;
-			outline: none;
-			width: 106px;
-			height: 36px;
-			line-height: 36px;
-			border-radius: 2px;
-			cursor: pointer;
-		}
+			.left-head {
+				margin-top: 20px;
 
-		.sure {
-			color: #fff;
-			background-color: @bgColor;
-			margin-right: 20px;
-		}
+				p {
+					font-size: 18px;
+					margin-top: 10px;
 
-		.cancel {
-			color: #999;
+					i {
+						padding-left: 35px;
+						background: url('http://localhost:8080/static/img/qxicon.png') no-repeat -511px -873px;
+					}
 
-			&:hover {
-				text-decoration: underline;
+					span {
+						color: #f57a00;
+						margin-left: 3px;
+					}
+
+				}
+
+			}
+
+			.left-content {
+				margin-top: 20px;
+				.border;
+
+				img {
+					width: 200px;
+					height: 200px;
+					overflow: hidden;
+					margin: 25px;
+				}
+
+				p {
+					font-size: 12px;
+					background-color: #f7f7f7;
+					color: #f57a00;
+					height: 40px;
+					line-height: 40px;
+
+					i {
+						padding-left: 15px;
+						background: url('http://localhost:8080/static/img/qxicon.png') no-repeat -522px -759px;
+					}
+
+				}
+
+			}
+
+			.c-right {
+				float: left;
+
+				img {
+					width: 371px;
+				}
+
 			}
 
 		}

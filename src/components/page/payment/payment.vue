@@ -17,16 +17,13 @@
       </div>
       <div class="pay">
         <p>支付<i>￥</i><span>168.00</span></p>
-        <a href="https://www.baidu.com" target="blank" id="gopay" @click="goToPay">去付款</a>
+        <a :href="[num===0?'https://wwww.baidu.com':'javascript:;']" target="blank" id="gopay" @click="goToPay">去付款</a>
       </div>
     </div>
-    <div id="add-popup" v-show="payOrNot">
+    <div id="add-popup" v-show="zfbPay">
       <div id="gray" class="gray"></div>
-      <div class="popup" id="popup">
+      <div class="zfb-popup" id="popup">
         <div class="popup-title clearFix">
-          <div class="title">
-            <!-- <p>用户注册协议</p> -->
-          </div>
           <div class="delete" @click="close">
             <i></i>
           </div>
@@ -42,6 +39,31 @@
         </div>
       </div>
     </div>
+    <div id="add-popup" v-show="wxPay">
+      <div id="gray" class="gray"></div>
+      <div class="wx-popup" id="popup">
+        <div class="popup-title clearFix">
+          <div class="delete" @click="close">
+            <i></i>
+          </div>
+        </div>
+        <div class="popup-content clearFix">
+          <div class="c-left">
+            <div class="left-head">
+              <p>请使用<span>微信</span><i></i><span>扫一扫</span></p>
+              <p>扫描二维码支付</p>
+            </div>
+            <div class="left-content">
+              <img src="http://localhost:8080/static/img/wxPay.png">
+              <p><i></i>二维码有效时长为2小时，请尽快支付</p>
+            </div>
+          </div>
+          <div class="c-right">
+            <img src="http://localhost:8080/static/img/weixin.jpg">
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 <script>
@@ -50,22 +72,30 @@ export default {
     return {
       lists: ["http://localhost:8080/static/img/zfb.png", "http://localhost:8080/static/img/wx.png"],
       num: 0,
-      payOrNot: false
+      zfbPay: false,
+      wxPay: false
     }
   },
   methods: {
     goToPay: function() {
-      this.payOrNot = true
+      console.log(this.num === 0)
+      if (this.num === 0) {
+        this.zfbPay = true;
+      } else if (this.num === 1) {
+        this.wxPay = true
+      }
     },
     close: function() {
-      this.payOrNot = false
+      this.zfbPay = false;
+      this.wxPay = false;
     },
     hasPay: function() {
       this.$router.push('/courseCenter/courseDetail');
     },
     choiceType: function(index) {
-      this.num = index
+      this.num = index;
     }
+
   }
 }
 

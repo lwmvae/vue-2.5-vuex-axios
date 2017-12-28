@@ -4,7 +4,7 @@
       <li v-for="(item,index) in subjectList">
         <div class="subject clearFix">
           <p><i>{{index+1}}</i><span>(分数：{{item.fraction}})</span>{{item.content}}</p>
-          <a href="javascript:;" class="doubtful">存疑</a>
+          <a href="javascript:;" class="doubtful" @click="doubtful">存疑</a>
         </div>
         <div class="source">
           <img class="img" v-for="imgSrc in item.sourse" :src="imgSrc" @click="showbigimg(imgSrc)">
@@ -16,7 +16,7 @@
         </div>
         <div class="option option-single" v-else>
           <ul @click="getOptionRd">
-            <li v-for="(opt,optIndex) in item.option"><span>{{[item.type]=='judge'?'':options[optIndex]}}</span>{{opt}}</li>
+            <li v-for="(opt,optIndex) in item.option" ref="getDouble"><span>{{[item.type]=='judge'?'':options[optIndex]}}</span>{{opt}}</li>
           </ul>
         </div>
       </li>
@@ -28,6 +28,8 @@
   </div>
 </template>
 <script>
+import { addClass, removeClass, toggleClass } from 'assets/js/dom'
+
 export default {
   data() {
     return {
@@ -36,18 +38,31 @@ export default {
     }
   },
   methods: {
-    getOptionRd: function(e) {
-      // var getLi = document.getElementsByClassName('option')[index].getElementsByTagName('li');
-      // console.log(getLi);
-      // getLi.className = '';
-      // e.target.className = 'active';
-
-      console.log(e.target);
-      // e.children.className='';
-      e.target.className='active';
-      // console.log(e.target);
+    doubtful:function(e){
+      toggleClass(e.target, 'active');
     },
-    getOptionCkb:function(){},
+    getOptionRd: function(e) {
+      var el = '';
+      if (e.target.tagName === 'SPAN') {
+        el = e.target.parentNode;
+      } else {
+        el = e.target;
+      }
+      var children=e.currentTarget.children;
+      for(let i=0;i<children.length;i++){
+        removeClass(children[i],'active');
+      }
+      addClass(el, 'active');
+    },
+    getOptionCkb: function(e) {
+      var el = '';
+      if (e.target.tagName === 'SPAN') {
+        el = e.target.parentNode;
+      } else {
+        el = e.target;
+      }
+      toggleClass(el, 'active');
+    },
     hideImg: function() {
       this.hideBigImg = false
     },

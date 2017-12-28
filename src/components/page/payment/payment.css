@@ -98,24 +98,13 @@
   -moz-border-radius: 2px;
   -webkit-border-radius: 2px;
 }
-#add-popup {
-  width: 100%;
-  height: 100%;
-  position: fixed;
-  top: 0;
-  left: 0;
-}
 #add-popup .gray {
   width: 100%;
   height: 100%;
   background: rgba(0, 0, 0, 0.3);
-}
-#add-popup .popup {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  background-color: #fff;
+  position: fixed;
+  top: 0;
+  left: 0;
 }
 #add-popup .popup-title {
   padding: 0 10px;
@@ -123,10 +112,6 @@
   line-height: 30px;
   background-color: #f3f3f3;
   color: #000;
-}
-#add-popup .popup-title .title {
-  float: left;
-  font-weight: bold;
 }
 #add-popup .popup-title .delete {
   float: right;
@@ -141,26 +126,33 @@
 #add-popup .popup-title .delete:hover i {
   background: url('http://localhost:8080/static/img/qxicon.png') no-repeat -520px -512px;
 }
-#add-popup .popup-content {
+#add-popup #popup {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fff;
+}
+#add-popup .zfb-popup .popup-content {
   overflow-y: auto;
   max-height: 500px;
   margin: 50px 100px 0 100px;
   background-color: #fff;
 }
-#add-popup .popup-content p {
+#add-popup .zfb-popup .popup-content p {
   line-height: 25px;
 }
-#add-popup .popup-content .p1 {
+#add-popup .zfb-popup .popup-content .p1 {
   font-size: 18px;
 }
-#add-popup .popup-content .p2 {
+#add-popup .zfb-popup .popup-content .p2 {
   color: #ff0000;
   margin-top: 10px;
 }
-#add-popup .popup-button {
+#add-popup .zfb-popup .popup-button {
   padding: 30px 100px;
 }
-#add-popup .popup-button button {
+#add-popup .zfb-popup .popup-button button {
   border: none;
   outline: none;
   width: 106px;
@@ -169,14 +161,61 @@
   border-radius: 2px;
   cursor: pointer;
 }
-#add-popup .popup-button .sure {
+#add-popup .zfb-popup .popup-button .sure {
   color: #fff;
   background-color: #3481d0;
   margin-right: 20px;
 }
-#add-popup .popup-button .cancel {
+#add-popup .zfb-popup .popup-button .cancel {
   color: #999;
 }
-#add-popup .popup-button .cancel:hover {
+#add-popup .zfb-popup .popup-button .cancel:hover {
   text-decoration: underline;
+}
+#add-popup .wx-popup .popup-content .c-left {
+  float: left;
+  padding: 0 40px;
+  text-align: center;
+}
+#add-popup .wx-popup .popup-content .left-head {
+  margin-top: 20px;
+}
+#add-popup .wx-popup .popup-content .left-head p {
+  font-size: 18px;
+  margin-top: 10px;
+}
+#add-popup .wx-popup .popup-content .left-head p i {
+  padding-left: 35px;
+  background: url('http://localhost:8080/static/img/qxicon.png') no-repeat -511px -873px;
+}
+#add-popup .wx-popup .popup-content .left-head p span {
+  color: #f57a00;
+  margin-left: 3px;
+}
+#add-popup .wx-popup .popup-content .left-content {
+  margin-top: 20px;
+  border: 1px solid #dfdfdf;
+}
+#add-popup .wx-popup .popup-content .left-content img {
+  width: 200px;
+  height: 200px;
+  overflow: hidden;
+  margin: 25px;
+}
+#add-popup .wx-popup .popup-content .left-content p {
+  font-size: 12px;
+  background-color: #f7f7f7;
+  color: #f57a00;
+  height: 40px;
+  line-height: 40px;
+}
+#add-popup .wx-popup .popup-content .left-content p i {
+  padding-left: 15px;
+  background: url('http://localhost:8080/static/img/qxicon.png') no-repeat -522px -759px;
+}
+#add-popup .wx-popup .popup-content .c-right {
+  float: left;
+}
+#add-popup .wx-popup .popup-content .c-right img {
+  width: 371px;
 }

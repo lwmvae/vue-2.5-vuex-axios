@@ -46,20 +46,14 @@
         </div>
         <div class="table-content" id="demo">
           <table id="demo1">
-            <tr v-for="list in getCertificate">
-              <td width="100px">{{list.name}}</td>
-              <td width="450px">{{list.courseName}}</td>
-              <td width="500px">{{list.certificateName}}</td>
-              <td width="150px">{{list.date}}</td>
-            </tr>
+              <tr v-for="list in getCertificate">
+                <td width="100px">{{list.name}}</td>
+                <td width="450px">{{list.courseName}}</td>
+                <td width="500px">{{list.certificateName}}</td>
+                <td width="150px">{{list.date}}</td>
+              </tr>
           </table>
           <table id="demo2">
-            <tr v-for="list in getCertificate">
-              <td width="100px">{{list.name}}</td>
-              <td width="450px">{{list.courseName}}</td>
-              <td width="500px">{{list.certificateName}}</td>
-              <td width="150px">{{list.date}}</td>
-            </tr>
           </table>
         </div>
         <div class="table-foot"></div>
@@ -88,13 +82,9 @@ export default {
         demo1 = $("demo1"),
         demo2 = $("demo2");
       var speed = 50;
-      // console.log(demo1);
-      // debugger;
-      // console.log(demo1.innerHTML);
       demo2.innerHTML = demo1.innerHTML;
-
       function Marquee() {
-        if (demo2.offsetTop - demo.scrollTop <= 0) {
+        if (demo2.offsetTop - demo.scrollTop==1306) {
           demo.scrollTop -= demo1.offsetHeight
         } else {
           demo.scrollTop++
@@ -113,9 +103,9 @@ export default {
     }, (error) => { console.log('失败') });
   },
   mounted() {
-    this.$nextTick(function() {
+    setTimeout(() => {
       this.scroll();
-    })
+    }, 20)
   }
 }
 

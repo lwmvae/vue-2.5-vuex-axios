@@ -279,7 +279,7 @@
   </div>
 </template>
 <script>
-
+import { mapGetters } from 'vuex'
 export default {
   data() {
     return {
@@ -288,45 +288,49 @@ export default {
       info: {},
       certificateList: [],
       mineCourse: [],
-      minePpaer:[],
-      showbigimg:false
+      minePpaer: [],
+      showbigimg: false
     }
   },
-  computed:{
-    
+  computed: {
+    ...mapGetters(['isLogin'])
   },
   methods: {
-    changeHead:function () {
-      
+    changeHead: function() {
+
     },
-    editInfo:function () {
-      this.navListNum=3;
+    editInfo: function() {
+      this.navListNum = 3;
     },
-    viewMore:function(){
-      this.navListNum=2;
+    viewMore: function() {
+      this.navListNum = 2;
     },
     navChange: function(index) {
       this.navListNum = index;
     },
-    goToPay:function (id) {
+    goToPay: function(id) {
       console.log(id);
     },
-    showBig:function(src){
-      this.showbigimg=true;
-      this.$refs.bigImg.src=src;
+    showBig: function(src) {
+      this.showbigimg = true;
+      this.$refs.bigImg.src = src;
     },
-    hideBig:function(){
-      this.showbigimg=false;
+    hideBig: function() {
+      this.showbigimg = false;
     }
   },
   created() {
-    this.$http.get('http://localhost:8080/static/json/userCenter.json').then((response) => {
-      var data = response.data;
-      this.info = data.info;
-      this.certificateList = data.certificateList;
-      this.mineCourse = data.mineCourse;
-      this.minePpaer = data.minePpaer;
-    }, (error) => { console.log('失败') });
+    if (this.isLogin) {
+      this.$http.get('http://localhost:8080/static/json/userCenter.json').then((response) => {
+        var data = response.data;
+        this.info = data.info;
+        this.certificateList = data.certificateList;
+        this.mineCourse = data.mineCourse;
+        this.minePpaer = data.minePpaer;
+      }, (error) => { console.log('失败') });
+    } else {
+      this.$router.push('/login');
+    }
 
   }
 }
