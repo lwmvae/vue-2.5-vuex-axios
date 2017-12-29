@@ -3,7 +3,7 @@
 import Vue from 'vue'
 import App from './App'
 
-import { sync } from 'vuex-router-sync'
+// import { sync } from 'vuex-router-sync'
 import store from './store'
 
 import router from './router'
@@ -11,9 +11,9 @@ import router from './router'
 import axios from 'axios';
 Vue.prototype.$http = axios;
 
-const unsync = sync(store, router)
+// const unsync = sync(store, router)
 
-unsync()
+// unsync()
 
 Vue.config.productionTip = false
 

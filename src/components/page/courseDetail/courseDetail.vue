@@ -79,6 +79,8 @@
   </div>
 </template>
 <script>
+import { getCourse } from 'api/course'
+import { ERR_OK } from 'api/config'
 import { mapGetters } from 'vuex'
 export default {
   data() {
@@ -101,22 +103,32 @@ export default {
     },
     goToTest: function() {
       this.$router.push('/mineExam/paper');
+    },
+    _getData: function() {
+      getCourse().then((res) => {
+        if (res.code === ERR_OK) {
+          var data = res.courseList;
+          data.forEach((item) => {
+            if (item.id == this.$route.query.id) {
+              this.detail = item;
+              if (!this.isLogin) {
+                this.detail.myCourse = false;
+              }
+              if (!this.detail.myCourse) {
+                this.navList = ['介绍'];
+              }
+            }
+
+          })
+        }
+      })
     }
   },
   computed: {
     ...mapGetters(['isLogin'])
   },
   created() {
-    this.$http.get('http://localhost:8080/static/json/courseDetail.json').then((response) => {
-      var data = response.data;
-      this.detail = data;
-      if (!this.isLogin) {
-        this.detail.myCourse = false;
-      }
-      if (!this.detail.myCourse) {
-        this.navList = ['介绍'];
-      }
-    }, (error) => { console.log('失败') })
+    this._getData();
   }
 }
 

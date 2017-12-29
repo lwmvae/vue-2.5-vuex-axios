@@ -27,34 +27,35 @@ export default new Router({
   routes: [{
       path: '/',
       component: home,
+      redirect: 'firstPage',
       children: [{
-        path: '/',
-        redirect: 'firstPage'
-      }, {
-        path: '/firstPage',
-        component: firstPage
-      }, {
-        path: '/userCenter',
-        component: userCenter
-      }, {
-        path: '/courseCenter',
-        component: courseCenter
-      }, {
-        path: '/courseCenter/courseDetail',
-        component: courseDetail
-      }, {
-        path: '/courseCenter/courseDetail/payment',
-        component: payment
-      }, {
-        path: '/mineExam',
-        component: mineExam
-      }, {
-        path: '/certificate',
-        component: certificate
-      }, {
-        path: '/education',
-        component: education
-      }]
+          path: '/firstPage',
+          component: firstPage
+        }, {
+          path: '/userCenter',
+          component: userCenter
+        }, {
+          path: '/courseCenter',
+          component: courseCenter
+        },
+        {
+          path: '/courseCenter/courseDetail',
+          component: courseDetail
+        },
+        {
+          path: '/courseCenter/courseDetail/payment',
+          component: payment
+        }, {
+          path: '/mineExam',
+          component: mineExam
+        }, {
+          path: '/certificate',
+          component: certificate
+        }, {
+          path: '/education',
+          component: education
+        }
+      ]
     },
     {
       path: '/login',

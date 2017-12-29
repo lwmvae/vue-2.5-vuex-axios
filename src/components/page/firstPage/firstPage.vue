@@ -17,7 +17,7 @@
               <img :src="course.avatar">
             </div>
             <div class="title">
-              <p>{{course.name}}</p>
+              <p>{{course.title}}</p>
             </div>
             <div class="product clearFix">
               <div class="price">
@@ -46,12 +46,12 @@
         </div>
         <div class="table-content" id="demo">
           <table id="demo1">
-              <tr v-for="list in getCertificate">
-                <td width="100px">{{list.name}}</td>
-                <td width="450px">{{list.courseName}}</td>
-                <td width="500px">{{list.certificateName}}</td>
-                <td width="150px">{{list.date}}</td>
-              </tr>
+            <tr v-for="list in getCertificate">
+              <td width="100px">{{list.name}}</td>
+              <td width="450px">{{list.courseName}}</td>
+              <td width="500px">{{list.certificateName}}</td>
+              <td width="150px">{{list.date}}</td>
+            </tr>
           </table>
           <table id="demo2">
           </table>
@@ -62,6 +62,10 @@
   </div>
 </template>
 <script>
+import { getCourse } from 'api/course'
+import { ERR_OK } from 'api/config'
+var HOTCOURSELENGTH = 8;
+
 export default {
   data() {
     return {
@@ -71,8 +75,7 @@ export default {
   },
   methods: {
     goToDetail: function(id) {
-      // console.log(id);
-      this.$router.push('/courseCenter/courseDetail');
+      this.$router.push({ path: '/courseCenter/courseDetail', query: { id: id } });
     },
     scroll: function() {
       function $(ele) {
@@ -83,8 +86,9 @@ export default {
         demo2 = $("demo2");
       var speed = 50;
       demo2.innerHTML = demo1.innerHTML;
+
       function Marquee() {
-        if (demo2.offsetTop - demo.scrollTop==1306) {
+        if (demo2.offsetTop - demo.scrollTop == 1306) {
           demo.scrollTop -= demo1.offsetHeight
         } else {
           demo.scrollTop++
@@ -93,12 +97,26 @@ export default {
       var MyMar = setInterval(Marquee, speed);
       demo.onmouseover = function() { clearInterval(MyMar) };
       demo.onmouseout = function() { MyMar = setInterval(Marquee, speed) };
+    },
+    _getHotList() {
+      getCourse().then((res) => {
+        if (res.code === ERR_OK) {
+          var data = res.courseList;
+          data.forEach((item, index) => {
+            if ((index+1) <= HOTCOURSELENGTH) {
+              this.hotCourse.push(item);
+            }
+          })
+
+        }
+      })
     }
   },
   created() {
+    this._getHotList();
     this.$http.get('http://localhost:8080/static/json/firstPage.json').then((response) => {
       var data = response.data;
-      this.hotCourse = data.hotCourse;
+      // this.hotCourse = data.hotCourse;
       this.getCertificate = data.getCertificate;
     }, (error) => { console.log('失败') });
   },

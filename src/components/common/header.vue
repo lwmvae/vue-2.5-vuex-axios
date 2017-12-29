@@ -38,24 +38,22 @@
         <i class="close" @click="closeWarn"></i>
       </div>
     </div>
-    <keep-alive>
-      <router-view></router-view>
-    </keep-alive>
+    <router-view></router-view>
   </div>
 </template>
 <script>
 import { mapMutations } from 'vuex'
 
 export default {
-  data(){
-    return{
-      isLogin:true
+  data() {
+    return {
+      isLogin: true
     }
   },
   methods: {
-    exitLogin:function(){
-      this.isLogin=!this.isLogin;
-      window.localStorage.setItem("username","");
+    exitLogin: function() {
+      this.isLogin = !this.isLogin;
+      window.localStorage.setItem("username", "");
       this.signOut();
     },
     // setInfo: function() {
@@ -64,13 +62,13 @@ export default {
     closeWarn: function() {
       this.$refs.warn.style.display = 'none';
     },
-    ...mapMutations(["setInfo","goToFirstpage","signOut"])
+    ...mapMutations(["setInfo", "goToFirstpage", "signOut"])
   },
-  created(){
-    var getUserName=window.localStorage.getItem("username");
-    if(getUserName){
+  created() {
+    var getUserName = window.localStorage.getItem("username");
+    if (getUserName) {
       this.goToFirstpage();
-      this.isLogin=false;
+      this.isLogin = false;
     }
   }
 }
@@ -112,7 +110,7 @@ export default {
 }
 
 .head-wrapper .head-img {
-  float: right; 
+  float: right;
 }
 
 .head-wrapper .head-img img {
@@ -125,13 +123,14 @@ export default {
   -moz-border-radius: 50%;
   -webkit-border-radius: 50%;
 }
-.head-wrapper .head-img a{
+
+.head-wrapper .head-img a {
   display: inline-block;
   vertical-align: top;
   line-height: 78px;
   cursor: pointer;
-  
 }
+
 .head-wrapper .login-register {
   float: right;
   line-height: 78px;

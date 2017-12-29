@@ -8,7 +8,7 @@
     <div class="course">
       <h5 v-show="noCourse">暂无该课程</h5>
       <ul class="clearFix" v-show="showCourse">
-        <li v-for="item in items" @click="goToDetail">
+        <li v-for="item in items" @click="goToDetail(item.id)">
           <div class="img">
             <img :src="item.avatar">
           </div>
@@ -45,6 +45,8 @@
   </div>
 </template>
 <script>
+import { getCourse } from 'api/course'
+import { ERR_OK } from 'api/config'
 import { mapGetters } from 'vuex'
 var data;
 export default {
@@ -58,8 +60,8 @@ export default {
     }
   },
   methods: {
-    goToDetail: function() {
-      this.$router.push('/courseCenter/courseDetail');
+    goToDetail: function(id) {
+      this.$router.push({ path: '/courseCenter/courseDetail', query: { id: id } });
     },
     changeCourse: function(index) {
       this.num = index;
@@ -77,28 +79,33 @@ export default {
         }
       }
       return arr;
+    },
+    _getData: function() {
+      getCourse().then((res) => {
+        if (res.code === ERR_OK) {
+          data = res.courseList;
+          if (data.length) {
+            this.showCourse = true;
+            this.items = data;
+            //未登录
+            if (!this.isLogin) {
+              for (let i in this.items) {
+                this.items[i].myCourse = false;
+              }
+            }
+          } else {
+            this.noCourse = true;
+          }
+
+        }
+      })
     }
   },
   computed: {
     ...mapGetters(['isLogin'])
   },
   created() {
-    this.$http.get('http://localhost:8080/static/json/course.json').then((response) => {
-      data = response.data;
-      if (data.length) {
-        this.showCourse = true;
-        this.items = data;
-        //未登录
-        if (!this.isLogin) {
-          for (let i in this.items) {
-            this.items[i].myCourse = false;
-          }
-        }
-      } else {
-        this.noCourse = true;
-      }
-    }, (error) => { console.log('失败') });
-
+    this._getData();
   }
 }
 
