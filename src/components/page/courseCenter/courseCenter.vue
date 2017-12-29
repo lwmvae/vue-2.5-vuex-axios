@@ -8,7 +8,7 @@
     <div class="course">
       <h5 v-show="noCourse">暂无该课程</h5>
       <ul class="clearFix" v-show="showCourse">
-        <li v-for="item in items" @click="goToDetail(item.id)">
+        <li v-for="item in items" @click="goToDetail(item.id,item.title)">
           <div class="img">
             <img :src="item.avatar">
           </div>
@@ -60,8 +60,8 @@ export default {
     }
   },
   methods: {
-    goToDetail: function(id) {
-      this.$router.push({ path: '/courseCenter/courseDetail', query: { id: id } });
+    goToDetail: function(id, title) {
+      this.$router.push({ path: '/courseCenter/courseDetail', query: { 'id': id, 'title': title } });
     },
     changeCourse: function(index) {
       this.num = index;

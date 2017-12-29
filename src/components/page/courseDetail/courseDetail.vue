@@ -129,6 +129,8 @@ export default {
   },
   created() {
     this._getData();
+    // console.log(decodeURI(this.$route.query.title))
+    // this.$route.query.title=decodeURI(this.$route.query.title)
   }
 }
 
