@@ -90,6 +90,8 @@
   </div>
 </template>
 <script>
+import { getCertificateList } from 'api/course'
+import { ERR_OK } from 'api/config'
 export default {
   data() {
     return {
@@ -147,15 +149,7 @@ export default {
       }
       if (!this.isNameShow && !this.isIdNumShow && !this.isCodeShow) {
         this.isResultShow = true;
-        this.$http.get('http://localhost:8080/static/json/certificateSearch.json').then((response) => {
-          var data = response.data;
-          if (data.length) {
-            this.table = true;
-            this.items = data;
-          } else {
-            this.noresult = true;
-          }
-        }, (error) => { console.log('失败') })
+        this._getCertificateList();
       }
     },
     showbigimg: function(item) {
@@ -164,6 +158,19 @@ export default {
     },
     hidebigimg: function() {
       this.bigimg = false;
+    },
+    _getCertificateList() {
+      getCertificateList().then((res) => {
+        if (res.code === ERR_OK) {
+          var data = res.getCertificate;
+          if (data.length) {
+            this.table = true;
+            this.items = data;
+          } else {
+            this.noresult = true;
+          }
+        }
+      })
     }
   }
 }

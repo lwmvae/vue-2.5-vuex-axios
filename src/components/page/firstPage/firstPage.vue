@@ -50,7 +50,7 @@
               <td width="100px">{{list.name}}</td>
               <td width="450px">{{list.courseName}}</td>
               <td width="500px">{{list.certificateName}}</td>
-              <td width="150px">{{list.date}}</td>
+              <td width="150px">{{list.getDate}}</td>
             </tr>
           </table>
           <table id="demo2">
@@ -62,9 +62,9 @@
   </div>
 </template>
 <script>
-import { getCourse } from 'api/course'
+import { getCourse, getCertificateList } from 'api/course'
 import { ERR_OK } from 'api/config'
-var HOTCOURSELENGTH = 8;
+const HOTCOURSELENGTH = 8;
 
 export default {
   data() {
@@ -103,22 +103,32 @@ export default {
         if (res.code === ERR_OK) {
           var data = res.courseList;
           data.forEach((item, index) => {
-            if ((index+1) <= HOTCOURSELENGTH) {
+            if ((index + 1) <= HOTCOURSELENGTH) {
               this.hotCourse.push(item);
             }
           })
 
         }
       })
+    },
+    _getCertificateList() {
+      getCertificateList().then((res) => {
+        if (res.code === ERR_OK) {
+          var data = res.getCertificate;
+          data.forEach((item) => {
+            item.name = this.filterName(item.name);
+          });
+          this.getCertificate = data;
+        }
+      })
+    },
+    filterName(name) {
+      return name.substring(0,1).concat("**");
     }
   },
   created() {
     this._getHotList();
-    this.$http.get('http://localhost:8080/static/json/firstPage.json').then((response) => {
-      var data = response.data;
-      // this.hotCourse = data.hotCourse;
-      this.getCertificate = data.getCertificate;
-    }, (error) => { console.log('失败') });
+    this._getCertificateList();
   },
   mounted() {
     setTimeout(() => {

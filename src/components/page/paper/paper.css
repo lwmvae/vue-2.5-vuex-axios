@@ -13,8 +13,6 @@
   text-align: center;
 }
 .loading p img {
-  width: 32px;
-  height: 32px;
   position: relative;
   top: 4px;
   left: 5px;
@@ -24,35 +22,31 @@
   width: 1200px;
   margin: 0 auto;
 }
-.content .con {
+.con {
   padding-top: 20px;
 }
-.content .exam-wrapper {
+.exam-wrapper {
   margin-top: 20px;
   height: 40px;
   line-height: 40px;
   padding: 0 10px;
   background-color: #dfdfdf;
 }
-.content .exam-wrapper .name,
-.content .exam-wrapper .score,
-.content .exam-wrapper .pass,
-.content .exam-wrapper .speed {
+.exam-wrapper .name,
+.exam-wrapper .score,
+.exam-wrapper .pass {
   float: left;
   margin-right: 30px;
 }
-.content .exam-wrapper .name p {
+.exam-wrapper .name p {
   max-width: 500px;
   height: 40px;
   overflow: hidden;
 }
-.content .exam-wrapper .speed span {
-  color: #ff3408;
-}
-.content .exam-wrapper .submit {
+.exam-wrapper .submit {
   float: right;
 }
-.content .exam-wrapper .submit button {
+.exam-wrapper .submit button {
   height: 30px;
   line-height: 30px;
   outline: none;
@@ -65,7 +59,7 @@
   -webkit-border-radius: 2px;
   cursor: pointer;
 }
-.content .fixed {
+.fixed {
   width: 100%;
   position: fixed;
   left: 0;
@@ -74,12 +68,12 @@
   background-color: #dfdfdf;
   transition: all 0.5s;
 }
-.content .fixed .exam-wrapper {
+.fixed .exam-wrapper {
   width: 1200px;
   margin: 0 auto;
   padding: 20px 0;
 }
-.content .exam-name {
+.exam-name {
   height: 100px;
   line-height: 100px;
   font-size: 30px;
@@ -87,30 +81,16 @@
   color: #fff;
   text-align: center;
 }
-.content .aside-wrapper {
+.aside-wrapper {
   width: 250px;
   position: absolute;
 }
-.content .all-subject {
-  margin-left: 270px;
-  width: 908px;
-  border: 1px solid #dfdfdf;
-  padding: 10px;
-  background-color: #fff;
-}
-.content .aside-fixed {
-  position: fixed;
-  top: 100px;
-  z-index: 100;
-  width: 1200px;
-  margin: 0 auto;
-}
-.content .person {
+.aside-wrapper .person {
   padding: 10px 0 10px 10px;
   border: 1px solid #dfdfdf;
   background-color: #fff;
 }
-.content .person .p-img {
+.aside-wrapper .person .p-img {
   float: left;
   width: 60px;
   height: 60px;
@@ -119,7 +99,7 @@
   -webkit-border-radius: 50%;
   overflow: hidden;
 }
-.content .person .p-img img {
+.aside-wrapper .person .p-img img {
   width: 60px;
   height: 60px;
   border-radius: 50%;
@@ -127,22 +107,22 @@
   -webkit-border-radius: 50%;
   overflow: hidden;
 }
-.content .person .p-info {
+.aside-wrapper .person .p-info {
   float: left;
   margin-left: 20px;
 }
-.content .person .p-info p {
+.aside-wrapper .person .p-info p {
   width: 157px;
   height: 60px;
   line-height: 60px;
   overflow: hidden;
 }
-.content .aside-down {
+.aside-wrapper .aside-down {
   margin-top: 20px;
   border: 1px solid #dfdfdf;
   background-color: #fff;
 }
-.content .remaining-time {
+.aside-wrapper .aside-down .remaining-time {
   width: 230px;
   margin: 0 auto;
   color: #ff3408;
@@ -151,44 +131,44 @@
   border-bottom: 1px solid #dfdfdf;
   font-size: 16px;
 }
-.content .remaining-time i {
+.aside-wrapper .aside-down .remaining-time i {
   padding-left: 25px;
   background: url(http://localhost:8080/static/img/qxicon.png) no-repeat -340px -395px;
 }
-.content .legend h6 {
+.aside-wrapper .aside-down .legend h6 {
   margin: 5px 0 5px 10px;
 }
-.content .legend p {
+.aside-wrapper .aside-down .legend p {
   display: inline-block;
   margin-left: 10px;
   color: #666;
 }
-.content .legend p span {
+.aside-wrapper .aside-down .legend p span {
   padding-left: 19px;
   margin-right: 5px;
 }
-.content .legend .p1 span {
+.aside-wrapper .aside-down .legend .p1 span {
   background-color: #3481d0;
 }
-.content .legend .p2 span {
+.aside-wrapper .aside-down .legend .p2 span {
   background-color: #ababab;
 }
-.content .legend .p3 span {
+.aside-wrapper .aside-down .legend .p3 span {
   background-color: #ff3408;
 }
-.content .subject-type {
+.aside-wrapper .aside-down .subject-type {
   padding-bottom: 10px;
   overflow-y: auto;
 }
-.content .subject-type ul {
+.aside-wrapper .aside-down .subject-type ul {
   font-size: 0;
 }
-.content .subject-type p {
+.aside-wrapper .aside-down .subject-type p {
   font-size: 16px;
   margin-left: 10px;
   margin-top: 10px;
 }
-.content .subject-type li {
+.aside-wrapper .aside-down .subject-type li {
   display: inline-block;
   font-size: 14px;
   width: 25px;
@@ -201,32 +181,140 @@
   margin-top: 10px;
   cursor: pointer;
 }
-.content .subject-type li.active {
+.aside-wrapper .aside-down .subject-type li.active {
   background-color: #3481d0;
 }
-.content .subject-type li.doubtful {
+.aside-wrapper .aside-down .subject-type li.doubtful {
   background-color: #ff3408;
 }
-.content .single,
-.content .double,
-.content .judge {
+.aside-fixed {
+  position: fixed;
+  top: 100px;
+  z-index: 100;
+  width: 1200px;
+  margin: 0 auto;
+}
+.all-subject {
+  margin-left: 270px;
+  width: 908px;
+  border: 1px solid #dfdfdf;
+  padding: 10px;
+  background-color: #fff;
+}
+.all-subject > div {
   border: 1px solid #dfdfdf;
   margin-top: 20px;
 }
-.content .title {
+.all-subject .title {
   height: 50px;
   border-bottom: 1px solid #dfdfdf;
 }
-.content .title .type {
+.all-subject .title .type {
   float: left;
   margin-left: 10px;
   line-height: 50px;
   font-size: 16px;
 }
-.content .title .detail {
+.all-subject .title .detail {
   float: left;
   margin-left: 5px;
   height: 50px;
   line-height: 50px;
   color: #888;
+}
+.all-subject .subject {
+  position: relative;
+  padding: 10px 10px 10px 30px;
+  border-bottom: 1px solid #dfdfdf;
+}
+.all-subject .subject p {
+  line-height: 25px;
+  padding-bottom: 10px;
+}
+.all-subject .subject i {
+  position: absolute;
+  top: 10px;
+  left: 3px;
+  display: block;
+  width: 25px;
+  height: 25px;
+  line-height: 25px;
+  text-align: center;
+  color: #fff;
+  background-color: #3481d0;
+  border-radius: 50%;
+  -moz-border-radius: 50%;
+  -webkit-border-radius: 50%;
+}
+.all-subject .subject span {
+  color: #888;
+  margin-right: 5px;
+}
+.all-subject .subject a {
+  position: absolute;
+  right: 10px;
+  bottom: 0;
+  padding-left: 20px;
+  color: #ff3408;
+  background: url(http://localhost:8080/static/img/qxicon.png) no-repeat -342px -867px;
+}
+.all-subject .subject a.active {
+  background: url(http://localhost:8080/static/img/qxicon.png) no-repeat -342px -756px;
+}
+.all-subject .source {
+  padding: 0 20px 0 30px;
+  margin-top: 10px;
+}
+.all-subject .source img {
+  width: 52px;
+  height: 52px;
+  margin-right: 10px;
+  overflow: hidden;
+  cursor: pointer;
+}
+.all-subject .source .img {
+  cursor: url('http://localhost:8080/static/img/magnifier.ico'), auto;
+}
+.all-subject .option {
+  padding: 0 20px 10px 30px;
+}
+.all-subject .option li {
+  margin-top: 20px;
+  cursor: pointer;
+}
+.all-subject .option li span {
+  padding-left: 23px;
+  margin-right: 5px;
+}
+.all-subject .option-single li span {
+  background: url(http://localhost:8080/static/img/qxicon.png) no-repeat -341px -638px;
+}
+.all-subject .option-single li.active span {
+  background: url(http://localhost:8080/static/img/qxicon.png) no-repeat -341px -515px;
+}
+.all-subject .option-double li span {
+  background: url(http://localhost:8080/static/img/qxicon.png) no-repeat -527px -154px;
+}
+.all-subject .option-double li.active span {
+  background: url(http://localhost:8080/static/img/qxicon.png) no-repeat -527px -24px;
+}
+.showbigimg {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  z-index: 1000;
+  background-color: rgba(0, 0, 0, 0.3);
+}
+.showbigimg img {
+  max-width: 100%;
+  max-height: 100%;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+.showbigimg img:hover {
+  cursor: url('http://localhost:8080/static/img/narrow.ico'), auto;
 }

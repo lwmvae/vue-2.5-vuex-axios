@@ -12,7 +12,7 @@
         </div>
         <p class="price">￥{{detail.price}}</p>
         <!-- 购买过后去掉class，内容变为 已参加 -->
-        <button class="join" v-show="!detail.myCourse" @click="goToBuy">立即参加</button>
+        <button class="join" v-show="!detail.myCourse" @click="goToBuy(detail.id,detail.title)">立即参加</button>
         <button v-show="detail.myCourse">已参加</button>
       </div>
     </div>
@@ -91,9 +91,9 @@ export default {
     }
   },
   methods: {
-    goToBuy: function() {
+    goToBuy: function(id,title) {
       if (this.isLogin) {
-        this.$router.push('/courseCenter/courseDetail/payment');
+        this.$router.push({path:'/courseCenter/courseDetail/payment',query:{'id':id,'title':title}});
       } else {
         this.$router.push('/login');
       }
@@ -108,7 +108,7 @@ export default {
       getCourse().then((res) => {
         if (res.code === ERR_OK) {
           var data = res.courseList;
-          data.forEach((item) => {
+          data.forEach((item) => {            
             if (item.id == this.$route.query.id) {
               this.detail = item;
               if (!this.isLogin) {
@@ -129,8 +129,6 @@ export default {
   },
   created() {
     this._getData();
-    // console.log(decodeURI(this.$route.query.title))
-    // this.$route.query.title=decodeURI(this.$route.query.title)
   }
 }
 

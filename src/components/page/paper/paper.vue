@@ -1,11 +1,11 @@
 <template>
   <div class="container" v-title data-title="考试">
     <div class="loading" v-show="showPaper">
-      <p><span>试卷加载中，请稍等</span><img src="http://localhost:8080/static/img/loading.gif" alt="加载中"></p>
+      <p><span>试卷加载中，请稍等</span><img src="http://localhost:8080/static/img/loading.gif" alt="加载中" width="32" height="32"></p>
     </div>
     <v-head :title="title"></v-head>
     <div class="content">
-      <div class="exam" ref="exam" :class="{fixed:isfixed}" >
+      <div class="exam" ref="exam" :class="{fixed:isfixed}">
         <div class="exam-wrapper clearFix">
           <div class="name">
             <p>{{info.courseName}}</p>
@@ -15,9 +15,6 @@
           </div>
           <div class="pass">
             <p>及格分：{{score*0.6}}分</p>
-          </div>
-          <div class="speed">
-            <p>做题进度：<span>0</span>/{{single.length+double.length+judge.length}}</p>
           </div>
           <div class="submit">
             <button @click="assignment">交卷</button>
@@ -49,57 +46,51 @@
                 <p class="p3"><span></span>存疑</p>
               </div>
               <div class="subject-type">
-                <ul @click="getNav">
-                  <p>一、单选题</p>
-                  <li v-for="index in single.length">{{index}}</li>
-                  <p>二、多选题</p>
-                  <li v-for="index in double.length">{{index}}</li>
-                  <p>三、判断题</p>
-                  <li v-for="index in judge.length">{{index}}</li>
+                <ul>
+                  <li v-for="index in subjectNum">{{index}}</li>
                 </ul>
               </div>
             </div>
           </div>
         </div>
         <div class="all-subject">
-          <!-- 单选题 -->
-          <div class="single">
+          <div v-for="(subjectItem,tihao) in subjectList">
             <div class="title clearFix">
               <div class="type">
-                一、单选题
+                {{optionType[tihao]}}、{{subjectItem.typeName}}
               </div>
               <div class="detail">
-                (共{{single.length}}题,共计{{sum(single)}}分)
+                (共{{subjectItem.list.length}}题,共计{{sumTypeScore(subjectItem.list)}}分)
               </div>
             </div>
-            <subject :subjectList="single"></subject>
-          </div>
-          <!-- 多选题 -->
-          <div class="double">
-            <div class="title clearFix">
-              <div class="type">
-                二、多选题
-              </div>
-              <div class="detail">
-                (共{{double.length}}题,共计{{sum(double)}}分)
-              </div>
-            </div>
-            <subject :subjectList="double"></subject>
-          </div>
-          <!-- 判断题 -->
-          <div class="judge">
-            <div class="title clearFix">
-              <div class="type">
-                三、判断题
-              </div>
-              <div class="detail">
-                (共{{judge.length}}题,共计{{sum(judge)}}分)
-              </div>
-            </div>
-            <subject :subjectList="judge"></subject>
+            <ul>
+              <li v-for="item in subjectItem.list">
+                <div class="subject clearFix">
+                  <p><i>{{0}}</i><span>(分数：{{item.fraction}})</span>{{item.content}}</p>
+                  <a href="javascript:;" class="doubtful">存疑</a>
+                </div>
+                <div class="source">
+                  <img class="img" v-for="imgSrc in item.sourse" :src="imgSrc" @click="showbigimg(imgSrc)">
+                </div>
+                <div class="option option-double" v-if="subjectItem.type==='double'">
+                  <ul>
+                    <li v-for="(opt,optIndex) in item.option"><span>{{options[optIndex]}}</span>{{opt}}</li>
+                  </ul>
+                </div>
+                <div class="option option-single" v-else>
+                  <ul>
+                    <li v-for="(opt,optIndex) in item.option" ref="getDouble"><span>{{[item.type]=='judge'?'':options[optIndex]}}</span>{{opt}}</li>
+                  </ul>
+                </div>
+              </li>
+            </ul>
           </div>
         </div>
       </div>
+    </div>
+    <!-- 点击图片展示大图 -->
+    <div class="showbigimg" v-show="hideBigImg" @click="hideImg">
+      <img src="#" ref="img">
     </div>
     <v-foot></v-foot>
   </div>
@@ -107,55 +98,50 @@
 <script>
 import vHead from '../../common/head.vue'
 import vFoot from '../../common/foot.vue'
-import subject from '../subject/subject.vue'
-// import subjectCheckbox from '../subjectCheckbox/subjectCheckbox.vue'
 var time = 0;
 export default {
   data() {
     return {
       title: '考试',
-      score: [],
+      options: ['A', 'B', 'C', 'D', 'E', 'F', 'G'],
+      optionType: ['一', '二', '三', '四', '五', '六', '七', '八'],
+      score: 0,
       info: [],
-      single: [],
-      double: [],
-      judge: [],
+      subjectList: [],
+      subjectNum: 0,
       showPaper: true,
       count: "00:00:00",
       isfixed: false,
-      subjectTop:[]
+      hideBigImg: false,
+      subjectOffsetTop: []
     }
   },
   methods: {
-    // 点击左边导航，滚动到相应的题目
-    getNav:function(e){
-      this.sumSubjectTop();
-        // console.log(this.subjectTop);
-      var num=parseInt(e.target.innerHTML);
-      if(num>0){
-        document.documentElement.scrollTop=this.subjectTop[num-1]-130;
-      }
-      // console.log(typeof e.target.innerHTML);
-      // console.log(this.subjectTop.length);
-    },
-    // 储存每道题距离顶部的高度
-    sumSubjectTop:function(){
-      var getSubject=document.getElementsByClassName('subject');
-      for(var i=0;i<getSubject.length;i++){
-        this.subjectTop[i]=getSubject[i].offsetTop
-      }
-      // return this.subjectTop;
-    },
-    sum: function(arr) {
+    sumTypeScore(arr) {
       var sum = 0;
       for (let i = 0, len = arr.length; i < len; i++) {
         sum += arr[i].fraction;
       }
       return sum;
     },
-    assignment: function() {
-      this.$router.push('/paper/examResult');
+    assignment() {
+      // this.$router.push('/paper/examResult');
     },
-    countDown: function(time) {
+    subjectTop() {
+      
+    },
+    titleFixed() {
+      var examTop = this.$refs.exam.offsetTop;
+      window.addEventListener('scroll', () => {
+        var scrollTop = document.documentElement.scrollTop;
+        if (scrollTop > examTop) {
+          this.isfixed = true;
+        } else {
+          this.isfixed = false;
+        }
+      }, false)
+    },
+    countDown(time) {
       var t = time;
       var h = 0,
         m = 0,
@@ -175,43 +161,32 @@ export default {
       s = checkTime(s);
       return h + ':' + m + ':' + s;
     },
-    callback: function() {
-      // this.$router.push('/');
+    callback() {
+      this.$router.push('/');
     },
-    titleFixed: function() {
-      var examTop = this.$refs.exam.offsetTop;
-      window.addEventListener('scroll',()=>{
-        var scrollTop = document.documentElement.scrollTop;
-        if (scrollTop > examTop) {
-          this.isfixed = true;
-        } else {
-          this.isfixed = false;
-        }
-      },false)      
+    hideImg() {
+      this.hideBigImg = false
+    },
+    showbigimg(src) {
+      this.hideBigImg = true;
+      this.$refs.img.src = src;
+    },
+    _getDate() {
+      this.$http.get('http://localhost:8080/static/json/paper.json').then((response) => {
+        var data = response.data;
+        this.info = data.info;
+        this.subjectList = data.subjectList;
+        this.subjectList.forEach((list) => {
+          this.subjectNum += list.list.length;
+          this.score += this.sumTypeScore(list.list);
+        });
+        time = this.info.paperTime;
+        this.showPaper = false
+      }, (error) => { console.log('失败') });
     }
-  },
-  created() {
-    this.$http.get('http://localhost:8080/static/json/paper.json').then((response) => {
-      var data = response.data;
-      this.info = data.info;
-      this.single = data.single;
-      this.double = data.double;
-      this.judge = data.judge;
-      this.score = this.sum(this.single) + this.sum(this.double) + this.sum(this.judge);
-      time = this.info.paperTime;
-    }, (error) => { console.log('失败') });
-
-    this.$nextTick(function(){
-
-      this.titleFixed();
-      // this.sumSubjectTop();
-      // console.log(this.isfixed);
-    });
-    
   },
   mounted() {
     var self = this;
-    self.showPaper = false;
     var timer = window.setInterval(function() {
       time--;
       self.count = self.countDown(time);
@@ -220,12 +195,16 @@ export default {
         self.callback();
       }
     }, 1000);
-
+  },
+  created() {
+    setTimeout(() => {
+      this._getDate()
+      this.titleFixed()
+    }, 20)
   },
   components: {
     vHead,
-    vFoot,
-    subject
+    vFoot
   }
 }
 

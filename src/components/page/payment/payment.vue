@@ -3,10 +3,10 @@
     <div class="payment">
       <div class="info clearFix">
         <div class="name">
-          <p>课程名称：<span>2</span></p>
+          <p>课程名称：<span>{{payInfo.title}}</span></p>
         </div>
         <div class="money">
-          <p>应付金额<i>￥</i><span>168.00</span></p>
+          <p>应付金额<i>￥</i><span>{{payInfo.price}}</span></p>
         </div>
       </div>
       <div class="mode">
@@ -16,7 +16,7 @@
         </ul>
       </div>
       <div class="pay">
-        <p>支付<i>￥</i><span>168.00</span></p>
+        <p>支付<i>￥</i><span>{{payInfo.price}}</span></p>
         <a :href="[num===0?'https://wwww.baidu.com':'javascript:;']" target="blank" id="gopay" @click="goToPay">去付款</a>
       </div>
     </div>
@@ -34,7 +34,7 @@
           <p class="p3">支付完成后请根据您的情况点击下面的按钮</p>
         </div>
         <div class="popup-button">
-          <button class="sure" @click="hasPay">已完成付款</button>
+          <button class="sure" @click="hasPay(payInfo.id,payInfo.title)">已完成付款</button>
           <a href="javascript:;" class="cancel" @click="close">返回选择其他付款方式</a>
         </div>
       </div>
@@ -67,10 +67,14 @@
   </div>
 </template>
 <script>
+import { getCourse } from 'api/course'
+import { ERR_OK } from 'api/config'
+
 export default {
   data() {
     return {
       lists: ["http://localhost:8080/static/img/zfb.png", "http://localhost:8080/static/img/wx.png"],
+      payInfo: {},
       num: 0,
       zfbPay: false,
       wxPay: false
@@ -78,7 +82,6 @@ export default {
   },
   methods: {
     goToPay: function() {
-      console.log(this.num === 0)
       if (this.num === 0) {
         this.zfbPay = true;
       } else if (this.num === 1) {
@@ -89,13 +92,28 @@ export default {
       this.zfbPay = false;
       this.wxPay = false;
     },
-    hasPay: function() {
-      this.$router.push('/courseCenter/courseDetail');
+    hasPay: function(id,title) {
+      this.$router.push({path:'/courseCenter/courseDetail',query:{'id':id,'title':title}});
     },
     choiceType: function(index) {
       this.num = index;
+    },
+    _getData: function() {
+      getCourse().then((res) => {
+        if (res.code === ERR_OK) {
+          var data = res.courseList;
+          data.forEach((item) => {
+            if (item.id == this.$route.query.id) {
+              this.payInfo = item;
+              console.log(this.payInfo);
+            }
+          })
+        }
+      })
     }
-
+  },
+  created() {
+    this._getData()
   }
 }
 

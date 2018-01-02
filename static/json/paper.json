@@ -8,49 +8,62 @@
     "paperTime": 7200,
     "userAvatar": "http://localhost:8080/static/img/header.jpg"
   },
-  "single": [
+  "subjectList": [
   {
     "type": "single",
-    "fraction": 2,
-    "content": "在1.0l×105Pa时，升高温度，液态空气依次先后分离出来的顺序是()",
-    "sourse": ["http://localhost:8080/static/img/demo.jpg", "http://localhost:8080/static/img/test.jpg"],
-    "option": ["氮气、氩气、氧气", "氧气、氩气、氮气", "氮气、氧气、氩气", "氧气、氮气、氩气"]
-  },
-  {
-    "type": "single",
-    "fraction": 2,
-    "content": "氩气的瓶体颜色为()",
-    "sourse": [],
-    "option": ["灰色", "绿色", "红色", "棕色"]
-  }],
-  "double": [
-  {
-    "type": "double",
-    "fraction": 5,
-    "content": "下列气体中属于惰性气体性质的气体有()",
-    "sourse": ["http://localhost:8080/static/img/demo.jpg"],
-    "option": ["氮气", "氩气", "氧气", "甲烷", "二氧化碳"]
+    "typeName": "选择题",
+    "list": [
+    {
+      "fraction": 2,
+      "content": "在1.0l×105Pa时，升高温度，液态空气依次先后分离出来的顺序是（）",
+      "sourse": ["http://localhost:8080/static/img/demo.jpg", "http://localhost:8080/static/img/test.jpg"],
+      "option": ["氮气、氩气、氧气", "氧气、氩气、氮气", "氮气、氧气、氩气", "氧气、氮气、氩气"],
+      "rightOption": 1
+    },
+    {
+      "fraction": 2,
+      "content": "氩气的瓶体颜色为（）",
+      "sourse": [],
+      "option": ["灰色", "绿色", "红色", "棕色"],
+      "rightOption": 2
+    }]
   },
   {
     "type": "double",
-    "fraction": 5,
-    "content": "空气中含氩气的比例是()%",
-    "sourse": [],
-    "option": ["0.93", "5", "0.5", "93"]
-  }],
-  "judge": [
-  {
-    "type": "judge",
-    "fraction": 3,
-    "content": "氮气属于永久气体？",
-    "sourse": [],
-    "option": ["正确", "错误"]
+    "typeName": "多选题",
+    "list": [
+    {
+      "fraction": 5,
+      "content": "下列气体中属于惰性气体性质的气体有（）",
+      "sourse": ["http://localhost:8080/static/img/demo.jpg"],
+      "option": ["氮气", "氩气", "氧气", "甲烷", "二氧化碳"],
+      "rightOption": 12
+    },
+    {
+      "fraction": 5,
+      "content": "空气中含氩气的比例是（）%",
+      "sourse": [],
+      "option": ["0.93", "5", "0.5", "93"],
+      "rightOption": 1234
+    }]
   },
   {
     "type": "judge",
-    "fraction": 3,
-    "content": "盛装氮气应使用无缝气瓶？",
-    "sourse": ["http://localhost:8080/static/img/demo.jpg"],
-    "option": ["正确", "错误"]
+    "typeName": "判断题",
+    "list": [
+    {
+      "fraction": 3,
+      "content": "氮气属于永久气体？",
+      "sourse": [],
+      "option": ["正确", "错误"],
+      "rightOption": 1
+    },
+    {
+      "fraction": 3,
+      "content": "盛装氮气应使用无缝气瓶？",
+      "sourse": ["http://localhost:8080/static/img/demo.jpg"],
+      "option": ["正确", "错误"],
+      "rightOption": 2
+    }]
   }]
 }
