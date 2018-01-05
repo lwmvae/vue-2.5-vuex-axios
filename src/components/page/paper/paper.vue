@@ -47,7 +47,7 @@
               </div>
               <div class="subject-type">
                 <ul>
-                  <li v-for="index in subjectNum">{{index}}</li>
+                  <li v-for="index in subjectNum" @click="goToNav(index)">{{index}}</li>
                 </ul>
               </div>
             </div>
@@ -64,7 +64,7 @@
               </div>
             </div>
             <ul>
-              <li v-for="item in subjectItem.list">
+              <li v-for="item in subjectItem.list" ref="getLiGroup">
                 <div class="subject clearFix">
                   <p><i>{{0}}</i><span>(分数：{{item.fraction}})</span>{{item.content}}</p>
                   <a href="javascript:;" class="doubtful">存疑</a>
@@ -128,7 +128,46 @@ export default {
       // this.$router.push('/paper/examResult');
     },
     subjectTop() {
-      
+      const getLi = this.$refs.getLiGroup
+      for (let i = 0; i < getLi.length; i++) {
+        let height = getLi[i].offsetTop;
+        this.subjectOffsetTop.push(height)
+      }
+    },
+    goToNav(index) {
+      if (this.subjectOffsetTop.length) {
+        this.scroll(index)
+      } else {
+        this.subjectTop()
+        this.scroll(index)
+      }
+    },
+    scroll(index) {
+      var scrollH = document.documentElement.scrollTop;
+      var backH = this.subjectOffsetTop[index - 1] - 200;
+      console.log(scrollH, backH)
+      if (scrollH > backH) {
+        var timer1 = setInterval(() => {
+          let scrollH1 = document.documentElement.scrollTop;
+          let shiji1 = scrollH1 - backH;
+          let speed1 = shiji1 / 5;
+          document.documentElement.scrollTop = scrollH1 - speed1;
+          if (scrollH1 < (backH + 5)) {
+            clearInterval(timer1);
+          }
+        }, 30)
+      } else {
+        var timer2 = setInterval(function() {
+          let scrollH2 = document.documentElement.scrollTop;
+          let shiji2 = backH - scrollH2;
+          let speed2 = shiji2 / 5;
+          document.documentElement.scrollTop = scrollH2 + speed2;
+          if (scrollH2 > (backH - 5)) {
+            clearInterval(timer2);
+          }
+        }, 30)
+      }
+      // document.documentElement.scrollTop = this.subjectOffsetTop[index - 1] - 200
     },
     titleFixed() {
       var examTop = this.$refs.exam.offsetTop;
@@ -195,6 +234,7 @@ export default {
         self.callback();
       }
     }, 1000);
+
   },
   created() {
     setTimeout(() => {
