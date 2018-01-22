@@ -293,7 +293,7 @@ export default {
     }
   },
   computed: {
-    ...mapGetters(['isLogin'])
+    ...mapGetters(['isLogin','count'])
   },
   methods: {
     changeHead: function() {
@@ -331,7 +331,8 @@ export default {
     } else {
       this.$router.push('/login');
     }
-
+    //设置显示为个人资料
+    this.navListNum=this.count;
   }
 }
 

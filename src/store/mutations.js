@@ -2,7 +2,7 @@ const mutations = {
   setInfo(state) {
     state.count = 3;
   },
-  goToFirstpage(state) {
+  signIn(state) {
     state.isLogin = true;
   },
   signOut(state) {

@@ -64,10 +64,10 @@
               </div>
             </div>
             <ul>
-              <li v-for="item in subjectItem.list" ref="getLiGroup">
+              <li v-for="(item,index) in subjectItem.list" ref="getLiGroup">
                 <div class="subject clearFix">
-                  <p><i>{{0}}</i><span>(分数：{{item.fraction}})</span>{{item.content}}</p>
-                  <a href="javascript:;" class="doubtful">存疑</a>
+                  <p><i>{{index+1}}</i><span>(分数：{{item.fraction}})</span>{{item.content}}</p>
+                  <a href="javascript:;" class="doubtful" @click="doubtful(index)">存疑</a>
                 </div>
                 <div class="source">
                   <img class="img" v-for="imgSrc in item.sourse" :src="imgSrc" @click="showbigimg(imgSrc)">
@@ -133,6 +133,9 @@ export default {
         let height = getLi[i].offsetTop;
         this.subjectOffsetTop.push(height)
       }
+    },
+    doubtful(index) {
+      console.log(index)
     },
     goToNav(index) {
       if (this.subjectOffsetTop.length) {

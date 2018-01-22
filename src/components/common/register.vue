@@ -114,7 +114,7 @@
   </div>
 </template>
 <script>
-import { mapActions } from 'vuex'
+import { mapMutations } from 'vuex'
 
 import vHead from './head.vue'
 import vFoot from './footer.vue'
@@ -164,8 +164,8 @@ export default {
         if (this.info.idcard != undefined) {
           if (this.info.phone != undefined) {
             window.localStorage.setItem("username", this.info.username);
-            // this.$router.push('/');
-            this.goToFirstpage();
+            this.$router.push('/');
+            this.signIn();
           } else {
             this.phoneNum = true;
           }
@@ -176,7 +176,7 @@ export default {
         this.psw = true;
       }
     },
-    ...mapActions(["goToFirstpage"])
+    ...mapMutations(["signIn"])
   },
   components: {
     vHead,

@@ -69,7 +69,7 @@
   </div>
 </template>
 <script>
-import { mapActions } from 'vuex'
+import { mapMutations } from 'vuex'
 
 import vHead from './head.vue'
 import vFoot from './foot.vue'
@@ -93,7 +93,7 @@ export default {
         countdown--;
         var timer = setInterval(function() {
           if (countdown == 0) {
-            self.$refs.getCode.className= '';
+            self.$refs.getCode.className = '';
             self.codeMsg = "获取验证码";
             clearInterval(timer);
             countdown = 60;
@@ -104,7 +104,7 @@ export default {
         }, 1000);
       } else {
         console.log(1);
-      }      
+      }
     },
     textPhoneNum: function() {
       var phoneFlag = /^1[3|4|5|7|8|9][0-9]{9}$/.test(this.info.phone);
@@ -141,10 +141,11 @@ export default {
         }
       }
     },
-    ...mapActions(["goToFirstpage"])
-    // goToFirstpage:function(){
-    //   this.$router.push('/');
-    // }
+    goToFirstpage: function() {
+      this.$router.push('/');
+      this.signIn()
+    },
+    ...mapMutations(["signIn"])
   },
   mounted() {
     this.$nextTick(function() {

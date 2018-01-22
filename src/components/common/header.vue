@@ -12,11 +12,11 @@
             </div>
           </router-link>
         </div>
-        <div class="login-register" v-show="isLogin">
+        <div class="login-register" v-show="!isLogin">
           <router-link to="/login" class="login">立即登录</router-link>
           <router-link to="/register" class="register">免费注册</router-link>
         </div>
-        <div class="head-img" v-show="!isLogin">
+        <div class="head-img" v-show="isLogin">
           <img src="http://localhost:8080/static/img/header.jpg">
           <a href="javascript:;" @click="exitLogin">退出登录</a>
         </div>
@@ -34,7 +34,7 @@
     </div>
     <div class="warn" ref="warn">
       <div class="warn-wrapper">
-        <p>您的资料未完善，不能购买课程，请点击<a href="javascript:;" @click="setInfo">立刻设置</a></p>
+        <p>您的资料未完善，不能购买课程，请点击<a href="javascript:;" @click="goToSetInfo">立刻设置</a></p>
         <i class="close" @click="closeWarn"></i>
       </div>
     </div>
@@ -42,34 +42,32 @@
   </div>
 </template>
 <script>
-import { mapMutations } from 'vuex'
+import { mapMutations,mapGetters } from 'vuex'
 
 export default {
-  data() {
-    return {
-      isLogin: true
-    }
-  },
   methods: {
     exitLogin: function() {
-      this.isLogin = !this.isLogin;
+      // this.isLogin = !this.isLogin;
       window.localStorage.setItem("username", "");
       this.signOut();
     },
-    // setInfo: function() {
-    //   this.$router.push('/userCenter');
-    // },
+    goToSetInfo: function() {
+      this.setInfo();
+      this.$router.push('/userCenter');
+    },
     closeWarn: function() {
       this.$refs.warn.style.display = 'none';
     },
-    ...mapMutations(["setInfo", "goToFirstpage", "signOut"])
+    ...mapMutations(["setInfo","signIn", "signOut"])
   },
   created() {
     var getUserName = window.localStorage.getItem("username");
     if (getUserName) {
-      this.goToFirstpage();
-      this.isLogin = false;
+      this.signIn();
     }
+  },
+  computed: {
+    ...mapGetters(['isLogin'])
   }
 }
 
