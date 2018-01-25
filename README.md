@@ -14,6 +14,7 @@
 
 6. 继续教育-为用户导航到其他相关网站进行深入学习
 
+#### 首页展示
 ![Alt text](/static/img/show.png)
 
 ## Build Setup
