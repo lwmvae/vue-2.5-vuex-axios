@@ -131,7 +131,7 @@ export default {
   },
   methods: {
     closeAgm: function() {
-      this.$router.push('/');
+      this.$router.go(-1);
     },
     agree: function() {
       this.agreement = false;
@@ -164,7 +164,7 @@ export default {
         if (this.info.idcard != undefined) {
           if (this.info.phone != undefined) {
             window.localStorage.setItem("username", this.info.username);
-            this.$router.push('/');
+            this.$router.go(-1);
             this.signIn();
           } else {
             this.phoneNum = true;

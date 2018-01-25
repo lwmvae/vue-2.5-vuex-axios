@@ -1,8 +1,6 @@
 <template>
   <div class="container" v-title data-title="考试">
-    <div class="loading" v-show="showPaper">
-      <p><span>试卷加载中，请稍等</span><img src="http://localhost:8080/static/img/loading.gif" alt="加载中" width="32" height="32"></p>
-    </div>
+    <loading msg="试卷加载中，请稍等" v-show="!subjectList.length"></loading>
     <v-head :title="title"></v-head>
     <div class="content">
       <div class="exam" ref="exam" :class="{fixed:isfixed}">
@@ -64,10 +62,10 @@
               </div>
             </div>
             <ul>
-              <li v-for="(item,index) in subjectItem.list" ref="getLiGroup">
+              <li v-for="(item) in subjectItem.list" ref="getLiGroup">
                 <div class="subject clearFix">
-                  <p><i>{{index+1}}</i><span>(分数：{{item.fraction}})</span>{{item.content}}</p>
-                  <a href="javascript:;" class="doubtful" @click="doubtful(index)">存疑</a>
+                  <p><i>{{0}}</i><span>(分数：{{item.fraction}})</span>{{item.content}}</p>
+                  <a href="javascript:;" @click="doubtful()">存疑</a>
                 </div>
                 <div class="source">
                   <img class="img" v-for="imgSrc in item.sourse" :src="imgSrc" @click="showbigimg(imgSrc)">
@@ -98,6 +96,7 @@
 <script>
 import vHead from '../../common/head.vue'
 import vFoot from '../../common/foot.vue'
+import loading from '../loading/loading.vue'
 var time = 0;
 export default {
   data() {
@@ -109,7 +108,7 @@ export default {
       info: [],
       subjectList: [],
       subjectNum: 0,
-      showPaper: true,
+      showDoubtful:false,
       count: "00:00:00",
       isfixed: false,
       hideBigImg: false,
@@ -125,6 +124,7 @@ export default {
       return sum;
     },
     assignment() {
+      console.log('交卷')
       // this.$router.push('/paper/examResult');
     },
     subjectTop() {
@@ -134,8 +134,8 @@ export default {
         this.subjectOffsetTop.push(height)
       }
     },
-    doubtful(index) {
-      console.log(index)
+    doubtful() {
+      
     },
     goToNav(index) {
       if (this.subjectOffsetTop.length) {
@@ -170,7 +170,7 @@ export default {
           }
         }, 30)
       }
-      // document.documentElement.scrollTop = this.subjectOffsetTop[index - 1] - 200
+      document.documentElement.scrollTop = this.subjectOffsetTop[index - 1] - 200
     },
     titleFixed() {
       var examTop = this.$refs.exam.offsetTop;
@@ -210,8 +210,8 @@ export default {
       this.hideBigImg = false
     },
     showbigimg(src) {
-      this.hideBigImg = true;
       this.$refs.img.src = src;
+      this.hideBigImg = true;
     },
     _getDate() {
       this.$http.get('http://localhost:8080/static/json/paper.json').then((response) => {
@@ -223,7 +223,6 @@ export default {
           this.score += this.sumTypeScore(list.list);
         });
         time = this.info.paperTime;
-        this.showPaper = false
       }, (error) => { console.log('失败') });
     }
   },
@@ -247,7 +246,8 @@ export default {
   },
   components: {
     vHead,
-    vFoot
+    vFoot,
+    loading
   }
 }
 

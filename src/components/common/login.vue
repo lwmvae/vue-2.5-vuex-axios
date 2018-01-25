@@ -142,7 +142,7 @@ export default {
       }
     },
     goToFirstpage: function() {
-      this.$router.push('/');
+      this.$router.go(-1);
       this.signIn()
     },
     ...mapMutations(["signIn"])
